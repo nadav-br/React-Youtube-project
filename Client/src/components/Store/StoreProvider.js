@@ -1,7 +1,11 @@
 import React, { Component } from "react";
-import FeedVideo from "../Feed/FeedVideo/FeedVideo";
 
-class Feed extends Component {
+const Context = React.createContext();
+
+export const Provider = Context.Provider;
+export const Consumer = Context.Consumer;
+
+export class StoreProvider extends Component {
   state = {
     Videos: [
       {
@@ -29,19 +33,11 @@ class Feed extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.Videos.map(video => {
-          return (
-            <FeedVideo
-              id={video.id}
-              name={video.name}
-              url={video.url.slice(0, -1)}
-            />
-          );
-        })}
-      </div>
+      <>
+        <Provider value={this.state}>{this.props.children}</Provider>
+      </>
     );
   }
 }
 
-export default Feed;
+export default StoreProvider;
