@@ -8,7 +8,7 @@ function App() {
   return (
     <StoreProvider>
       <div>
-        <HomePage />
+      <HomePage />
       </div>
     </StoreProvider>
   );
