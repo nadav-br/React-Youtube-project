@@ -6,9 +6,11 @@ import HomePage from "./components/HomePage/HomePage";
 
 function App() {
   return (
-    <>
-      <HomePage />
-    </>
+    <StoreProvider>
+      <div>
+        <HomePage />
+      </div>
+    </StoreProvider>
   );
 }
 
