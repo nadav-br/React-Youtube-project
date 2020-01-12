@@ -1,19 +1,9 @@
 import React, { Component } from 'react'
-import './SideVideoList.css'
+
 
 class SideVideoList extends Component {
-    constructor() {
-        super()
-        this.state= {
-            videoslist: []
-        }
-    }
-
-    componentDidMount() {
-        fetch('/api/videosList')
-        .then(res => res.json())
-        .then(videoslist => this.setState({videoslist}))
-    }
+    
+    
     render() {        
         return (
             <div>                

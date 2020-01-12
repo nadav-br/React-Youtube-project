@@ -5,17 +5,16 @@ import { Consumer } from "../../Store/StoreProvider";
 class Feed extends Component {
   render() {
     return (
-      <>
-        <Consumer>
-          {store => {
-            return store.Videos.map(video => {
-              return (
-                <FeedVideo id={video.id} name={video.name} url={video.url} />
-              );
-            });
-          }}
-        </Consumer>
-      </>
+      <Consumer>
+        {store => {
+          console.log(store)
+          return store.videoslist.map(video => {
+            return (
+              <FeedVideo {...video} />
+            );
+          });
+        }}
+      </Consumer>
     );
   }
 }

@@ -8,7 +8,12 @@ const videosList = [
     { id: "4", name: "Disney Junior Israel", url: "https://www.youtube.com/embed/JWFdJHxVAKk"}
 ]
 
-app.get('/api/videosList', (req, res) => {    
+app.use((req, res, next) => {
+    console.log(req.url);
+    next();
+})
+
+app.get('/videos', (req, res) => {    
     res.json(videosList);    
 })
 
