@@ -1,11 +1,15 @@
 import React, { Component } from "react";
+import"./FeedVideo.scss";
 
 class FeedVideo extends Component {
   render() {
-    return <div>
-      {this.props.name}
-      {this.props.url}
-    </div>;
+    return <>
+      <ul className="feedVideo">
+        <iframe src={this.props.url} />
+        <li>{this.props.author}</li>
+        <li>{this.props.description}</li>
+      </ul>
+    </>
   }
 }
 
