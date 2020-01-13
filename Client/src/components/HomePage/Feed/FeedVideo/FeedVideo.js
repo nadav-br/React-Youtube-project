@@ -4,6 +4,7 @@ class FeedVideo extends Component {
   render() {
     return <div>
       {this.props.name}
+      {this.props.url}
     </div>;
   }
 }
