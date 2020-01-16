@@ -1,27 +1,62 @@
-const express = require('express');
+const express = require('express')
 const app = express();
+const rp = require('request-promise');
+const qs = require('querystring');
+const KEY = 'AIzaSyCiWZ6dmHKrOEnTRVX_MM9nBhhbWPv28bw';
 
-const videosList = [
-    { id: "1",description:"this is a description", author: "Masha and the Bear", url: "https://www.youtube.com/embed/ac9a8mLgCHY"},    
-    { id: "2",description:"this is a description", author: "ערוץ הופ!", url: "https://www.youtube.com/embed/tcMMmXpw6d8"},
-    { id: "3",description:"this is a description", author: "Disney Junior Israel", url: "https://www.youtube.com/embed/_SWySRlRKaw"},
-    { id: "4",description:"this is a description", author: "Disney Junior Israel", url: "https://www.youtube.com/embed/JWFdJHxVAKk"},
-    { id: "1",description:"this is a description", author: "Masha and the Bear", url: "https://www.youtube.com/embed/ac9a8mLgCHY"},    
-    { id: "2",description:"this is a description", author: "ערוץ הופ!", url: "https://www.youtube.com/embed/tcMMmXpw6d8"},
-    { id: "3",description:"this is a description", author: "Disney Junior Israel", url: "https://www.youtube.com/embed/_SWySRlRKaw"},
-    { id: "4",description:"this is a description", author: "Disney Junior Israel", url: "https://www.youtube.com/embed/JWFdJHxVAKk"},{ id: "1",description:"this is a description", author: "Masha and the Bear", url: "https://www.youtube.com/embed/ac9a8mLgCHY"},    
-    { id: "2",description:"this is a description", author: "ערוץ הופ!", url: "https://www.youtube.com/embed/tcMMmXpw6d8"},
-    { id: "3",description:"this is a description", author: "Disney Junior Israel", url: "https://www.youtube.com/embed/_SWySRlRKaw"},
-    { id: "4",description:"this is a description", author: "Disney Junior Israel", url: "https://www.youtube.com/embed/JWFdJHxVAKk"},
-]
 
-app.use((req, res, next) => {
-    console.log(req.url);
-    next();
+app.get('/videos', async (req, res) => {   
+        const data = await requestVideos()
+        res.json(data)
 })
 
-app.get('/videos', (req, res) => {    
-    res.json(videosList);    
+
+const requestVideos = async () => {
+     let videoQuery = qs.stringify({
+         part: "snippet",
+        maxResults: 20,
+         key: KEY,
+        chart: 'mostPopular'
+     })
+
+     let options = {
+         method: 'GET',
+         url: `https://www.googleapis.com/youtube/v3/videos?${videoQuery}`,
+         resolveWithFullResponse: true, 
+         json: true // const data = await data.JSON();
+     }
+
+     const respone = await rp(options);
+     console.log(respone)
+     return respone.body.items
+}
+
+
+
+
+app.get('/search', async (req, res) => {   
+    const data = await searchVideos()
+    res.json(data)
 })
+
+const searchVideos = async () => {
+    let searchQuery = qs.stringify({
+        part: snippet,
+        key: KEY,
+        q,
+    }) 
+
+    let options = {
+        method: 'GET',
+        url: `https://www.googleapis.com/youtube/v3/search?${searchQuery}`,
+        resolveWithFullResponse: true, 
+        json: true // const data = await data.JSON();
+    }
+    const respone = await rp(options);
+    console.log(respone)
+     return respone.body.items
+}
+
 
 app.listen(5000);
+

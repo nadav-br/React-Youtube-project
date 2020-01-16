@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 
-class SideVideoList extends Component {
-    
-    
-    render() {        
+const SideVideoList = () => {   
+                
         return (
             <div>                
                     {this.state.videoslist.map(video => {
@@ -18,7 +16,7 @@ class SideVideoList extends Component {
                     )}            
             </div>
         )
-    }
+    
 }
 
 export default SideVideoList

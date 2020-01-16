@@ -1,11 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 
-export class Comments extends Component {
-  static propTypes = {};
-
-  render() {
+const Comments = () => {
+  
     return <div></div>;
-  }
+  
 }
 
 export default Comments;

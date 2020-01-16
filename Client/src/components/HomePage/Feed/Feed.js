@@ -1,23 +1,24 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
 import FeedVideo from "./FeedVideo/FeedVideo";
-import { Consumer } from "../../Store/StoreProvider";
+import { Context } from "../../Store/StoreProvider";
 
-class Feed extends Component {
-  render() {
+
+const Feed = () => {
+
+  const videoslist = useContext(Context);
+  
     return (
-      <div className="feed"> 
-        <Consumer>
-          {store => {
-            return store.videoslist.map(video => {
+      <div className="feed">         
+          {videoslist.map(video => {
               return (
                 <FeedVideo key={video.id} {...video} />
               );
-            });
-          }}
-        </Consumer>
+            })
+          }
+        
       </div>
     );
-  }
+  
 }
 
 export default Feed;

@@ -1,15 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import Feed from "./Feed/Feed";
 
-class HomePage extends Component {
-  
-  render() {
+const HomePage = () => { 
+ 
     return (
       <div>
         <Feed />
       </div>
     );
-  }
+  
 }
 
 export default HomePage;

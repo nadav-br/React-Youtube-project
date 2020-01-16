@@ -1,34 +1,28 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 
-const Context = React.createContext();
-
+export const Context = React.createContext();
 export const Provider = Context.Provider;
-export const Consumer = Context.Consumer;
 
-export class StoreProvider extends Component {
+const StoreProvider = (props) => {
 
-  constructor() { 
-    super()
-    this.state= {
-        videoslist: []
-    }
-}
+  const [videoslist, setVideoList] = useState([])
 
-componentDidMount() {
-    fetch('http://localhost:3000/videos')
+useEffect(() => {
+  fetch('http://localhost:3000/videos')
     .then(res => res.json())
-    .then(videoslist => this.setState({videoslist}))
-}
-  
+    .then(videoslist => {
+      console.log(videoslist)
+      setVideoList(videoslist)
+    })
 
-  render() {
+},[])
+  
     return (
       <>
-
-        <Provider value={this.state}>{this.props.children}</Provider>
+        <Provider value={videoslist}>{props.children}</Provider>
       </>
     );
-  }
+  
 }
 
 export default StoreProvider;
