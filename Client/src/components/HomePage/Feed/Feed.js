@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import FeedVideo from "./FeedVideo/FeedVideo";
 import { Context } from "../../Store/StoreProvider";
+import { Link } from "react-router-dom";
 
 
 const Feed = () => {
@@ -11,7 +12,9 @@ const Feed = () => {
       <div className="feed">         
           {videoslist.map(video => {
               return (
-                <FeedVideo key={video.id} {...video} />
+                <Link to="/video-page">
+                  <FeedVideo key={video.id} {...video} />
+                </Link>
               );
             })
           }

@@ -1,9 +1,5 @@
-import React, { Component } from "react";
-
-const VideoPage = () => {
-  
-    return <div></div>;
-  
-}
+import React from "react";
+import SideVideoList from "./NextInLine/sideVideoList";
+const VideoPage = () => <SideVideoList />
 
 export default VideoPage;
