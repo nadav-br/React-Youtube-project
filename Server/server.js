@@ -27,7 +27,6 @@ const requestVideos = async () => {
      }
 
      const respone = await rp(options);
-     console.log(respone)
      return respone.body.items
 }
 
