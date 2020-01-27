@@ -6,8 +6,15 @@ const KEY = 'AIzaSyCiWZ6dmHKrOEnTRVX_MM9nBhhbWPv28bw';
 
 
 app.get('/videos', async (req, res) => {   
-        const data = await requestVideos()
-        res.json(data)
+        const data = await requestVideos();
+        data.map(value => {
+            value.likes = 0;
+            value.unLikes = 0;
+            value.comments = "";
+        });
+        res.json(data);
+        
+        
 })
 
 
@@ -23,7 +30,7 @@ const requestVideos = async () => {
          method: 'GET',
          url: `https://www.googleapis.com/youtube/v3/videos?${videoQuery}`,
          resolveWithFullResponse: true, 
-         json: true // const data = await data.JSON();
+         json: true,// const data = await data.JSON();
      }
 
      const respone = await rp(options);
@@ -52,7 +59,7 @@ const searchVideos = async () => {
         json: true // const data = await data.JSON();
     }
     const respone = await rp(options);
-    console.log(respone)
+    //console.log(respone)
      return respone.body.items
 }
 
