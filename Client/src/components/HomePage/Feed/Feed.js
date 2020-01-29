@@ -12,13 +12,12 @@ const Feed = () => {
       <div className="feed">         
           {videoslist.map(video => {
               return (
-                <Link to="/video-page">
+                <Link to={`/video-page/${video.id}`}>
                   <FeedVideo key={video.id} {...video} />
-                </Link>
+               </Link>
               );
             })
           }
-        
       </div>
     );
   

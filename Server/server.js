@@ -8,7 +8,7 @@ const KEY = 'AIzaSyCiWZ6dmHKrOEnTRVX_MM9nBhhbWPv28bw';
 app.get('/videos', async (req, res) => {   
         const data = await requestVideos();
         data.map(value => {
-            value.likes = 0;
+            value.likes = 3;
             value.unLikes = 0;
             value.comments = "";
         });

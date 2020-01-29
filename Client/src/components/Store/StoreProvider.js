@@ -12,7 +12,7 @@ useEffect(() => {
     .then(res => res.json())
     .then(videoslist => {
       setVideoList(videoslist)
-      console.log(videoslist)
+      //console.log(videoslist)
     })
 },[])
   

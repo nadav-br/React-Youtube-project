@@ -4,10 +4,8 @@ import "./SideVideo.scss";
 const SideVideo = (props) => {
     return(
     <div className="SideVideo">
-      <ul className="SideVideo">
-        <li>{props.snippet.title}</li>
-      </ul>
-      <iframe src={`https://www.youtube.com/embed/${props.id}`} />
+      <p>{props.snippet.title}</p>
+      <img src={props.snippet.thumbnails.default.url} alt="" />
     </div>
     )
 }

@@ -12,7 +12,7 @@ const App = () => {
         <Router>
           <Switch>
             <Route path="/" exact component={HomePage} />
-            <Route path="/video-page" exact component={VideoPage} />
+            <Route path="/video-page/:id" exact component={VideoPage} />
           </Switch>
         </Router>
       </StoreProvider>

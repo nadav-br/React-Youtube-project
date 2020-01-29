@@ -5,9 +5,8 @@ const FeedVideo = (props) => {
   
     return <>
       <ul className="feedVideo">
-        <iframe src={`https://www.youtube.com/embed/${props.id}`} />
+        <img src={props.snippet.thumbnails.medium.url} alt="" />
         <li>{props.snippet.title}</li>
-        {/* <li>{this.props.snippet.description}</li> */}
       </ul>
     </>
   

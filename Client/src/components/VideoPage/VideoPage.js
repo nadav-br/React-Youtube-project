@@ -1,24 +1,31 @@
-import React, {useState} from "react";
+import React, {useContext, useState, useEffect} from "react";
 import SideVideoList from "./NextInLine/sideVideoList";
 import Player from "./SelectedVideo/Player/Player";
 import ActionButtons from "./SelectedVideo/Discription/ActionButtons/ActionButtons";
-import "./VideoPage.scss"
-const VideoPage = () => {
+import "./VideoPage.scss";
+import _ from "lodash";
+import {Context} from "../Store/StoreProvider";
 
-    const [likes, setLikes] = useState(0);
+const VideoPage = (props) => {
+  const videoList = useContext(Context);
+  const videoData = _.find(videoList,{id: props.match.params.id})
+
+ 
+  const [likes, setLikes] = useState(videoData.likes);
 
     const addLike = () => {
-    setLikes(likes + 1)
-  }
+      setLikes(likes + 1);
+    }
 
-    return (
+
+   return (
         <div className="videoPage">
             <SideVideoList />
-            <Player />
-            <ActionButtons addLike={addLike} likes={likes} />
+            <Player id={props.match.params.id} title={videoData.snippet.title} />
+            <ActionButtons addLike={addLike} likes={likes}/>
         </div>
         )
 }
 
 
-export default VideoPage;
+export default VideoPage
