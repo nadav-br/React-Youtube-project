@@ -1,0 +1,22 @@
+.searchVideo {
+    margin: auto;
+    margin-top: -55px;    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+    input {
+        width: 40%;
+        padding: 5px 20px;
+        direction: rtl;
+    }
+
+    button {
+        padding: 5px 20px;
+    }
+    
+      
+
+}

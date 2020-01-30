@@ -3,7 +3,7 @@ const app = express();
 const rp = require('request-promise');
 const qs = require('querystring');
 const KEY = 'AIzaSyCiWZ6dmHKrOEnTRVX_MM9nBhhbWPv28bw';
-
+// const url = require('url');
 
 app.get('/videos', async (req, res) => {   
         const data = await requestVideos()
@@ -11,41 +11,41 @@ app.get('/videos', async (req, res) => {
 })
 
 
-const requestVideos = async () => {
-     let videoQuery = qs.stringify({
+    const requestVideos = async () => {
+    let videoQuery = qs.stringify({
          part: "snippet",
-        maxResults: 20,
+        maxResults: 5,
          key: KEY,
         chart: 'mostPopular'
-     })
-
-     let options = {
+    })
+     
+    let options = {
          method: 'GET',
          url: `https://www.googleapis.com/youtube/v3/videos?${videoQuery}`,
-         resolveWithFullResponse: true, 
+         resolveWithFullResponse: true, //request-promise returns just the response body from a request. To get the full response object use reswuthall
          json: true // const data = await data.JSON();
-     }
+    }
 
      const respone = await rp(options);
-     console.log(respone)
+     //console.log(respone)
      return respone.body.items
 }
-
-
-
+ 
 
 app.get('/search', async (req, res) => {   
-    const data = await searchVideos()
+    //console.log(req.query)
+    const data = await searchVideos(req.query.q)
     res.json(data)
 })
 
-const searchVideos = async () => {
+const searchVideos = async (value) => {
     let searchQuery = qs.stringify({
-        part: snippet,
+        part: 'snippet',
         key: KEY,
-        q,
-    }) 
-
+        q: value,
+        maxResults: 20
+    })
+    
     let options = {
         method: 'GET',
         url: `https://www.googleapis.com/youtube/v3/search?${searchQuery}`,
@@ -53,7 +53,7 @@ const searchVideos = async () => {
         json: true // const data = await data.JSON();
     }
     const respone = await rp(options);
-    console.log(respone)
+    console.log(respone.body.items[0])
      return respone.body.items
 }
 

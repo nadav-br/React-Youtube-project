@@ -1,11 +1,14 @@
 import React from "react";
 import Feed from "./Feed/Feed";
+import SearchVideo from '../SearchVideo/SearchVideo';
+
 
 const HomePage = () => { 
  
     return (
-      <div>
+      <div className='homePage'>      
         <Feed />
+        
       </div>
     );
   
