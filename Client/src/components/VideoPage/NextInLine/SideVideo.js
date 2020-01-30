@@ -1,13 +1,13 @@
 import React from "react";
+import "./SideVideo.scss";
 
 const SideVideo = (props) => {
-    return <>
-      <ul className="SideVideo">
-        <iframe src={`https://www.youtube.com/embed/${props.id}`} />
-        <li>{props.snippet.title}</li>
-        {/* <li>{this.props.snippet.description}</li> */}
-      </ul>
-    </>
+    return(
+    <div className="SideVideo">
+      <p>{props.snippet.title}</p>
+      <img src={props.snippet.thumbnails.default.url} alt="" />
+    </div>
+    )
 }
 
 export default SideVideo

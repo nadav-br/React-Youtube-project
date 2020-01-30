@@ -6,8 +6,15 @@ const KEY = 'AIzaSyCiWZ6dmHKrOEnTRVX_MM9nBhhbWPv28bw';
 // const url = require('url');
 
 app.get('/videos', async (req, res) => {   
-        const data = await requestVideos()
-        res.json(data)
+        const data = await requestVideos();
+        data.map(value => {
+            value.likes = 3;
+            value.unLikes = 0;
+            value.comments = "";
+        });
+        res.json(data);
+        
+        
 })
 
 
