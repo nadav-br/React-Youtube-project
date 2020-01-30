@@ -7,13 +7,13 @@
   pointer-events: none;
 }
 
-img {
+/* img {
   margin-left: 1030px;
   margin-top: 40px;
   width: 10%;
   height: 10%;
   
-}
+} */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

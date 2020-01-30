@@ -8,7 +8,7 @@ const HomePage = () => {
     return (
       <div className='homePage'>      
         <Feed />
-        
+        {/* <SearchVideo /> */}
       </div>
     );
   
