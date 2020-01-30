@@ -21,7 +21,7 @@ function SearchResults() {
             {search.map(video => {
                 return (
                 <ul className="feedVideo">
-                    <iframe src={`https://www.youtube.com/embed/${video.id.videoId}`} />
+                    <img src={video.snippet.thumbnails.medium.url} />
                     <li>{video.snippet.title}</li>
                 {/* <li>{this.props.snippet.description}</li> */}
                 </ul>

@@ -21,7 +21,7 @@ app.get('/videos', async (req, res) => {
     const requestVideos = async () => {
     let videoQuery = qs.stringify({
          part: "snippet",
-        maxResults: 5,
+        maxResults: 20,
          key: KEY,
         chart: 'mostPopular'
     })

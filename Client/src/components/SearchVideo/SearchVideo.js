@@ -14,8 +14,7 @@ const SearchVideo = () => {
     }
 
     const clickSearch = () => {   
-        history.push('/search-results/' + input)
-        // let match = useRouteMatch("/search-results/:id")
+        history.push('/search-results/' + input)       
     };
 
     return (
