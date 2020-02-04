@@ -13,7 +13,7 @@ const VideoPage = (props) => {
   const [likes, setLikes] = useState(0);
   const [unLikes, setUnLikes] = useState(0);
   const [id, SetId] = useState("");
-  const [cliked, setClicked] = useState(true)
+  const [clicked, setClicked] = useState(false)
 
   useEffect(() => {
     if (videoList.length === 0) {
@@ -25,21 +25,40 @@ const VideoPage = (props) => {
     setLikes(filterVideo.likes);
     setUnLikes(filterVideo.unLikes);
     SetId(filterVideo.id);
-    setClicked(cliked);
+    setClicked(clicked);
 
     // console.log("filterVideo",filterVideo)
   }, [videoList]);
+
   
   const addLike = () => {
+    if(!clicked){
+      setLikes(likes + 1)
+      setClicked(true);
+    }else{
+      setLikes(likes - 1)
       setClicked(false);
-      console.log("second",cliked);
+    }
   }
-
+  const addUnLikes = () => {
+    if(!clicked){
+      setUnLikes(unLikes + 1)
+      setClicked(true);
+    }else{
+      setUnLikes(unLikes - 1)
+      setClicked(false);
+    }
+  }
+  
   return (
         <div className="videoPage">
             <SideVideoList />
             <Player id={id} title={videoTitle} />
-            <ActionButtons addLike={addLike} likes={likes} />             
+            <ActionButtons 
+            addUnLikes={addUnLikes} 
+            unLikes={unLikes} 
+            addLike={addLike} 
+            likes={likes} />             
         </div>
         )
 }

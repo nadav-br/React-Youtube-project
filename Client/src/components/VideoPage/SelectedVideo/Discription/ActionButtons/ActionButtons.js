@@ -9,7 +9,8 @@ const ActionButtons = (props) => {
       <VideoBtn 
         addLike={props.addLike} 
         likes={props.likes}
-         
+        addUnLikes={props.addUnLikes}
+        unLikes={props.unLikes} 
       />
     </div>
   );  
