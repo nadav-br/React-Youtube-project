@@ -11,7 +11,8 @@ import logo from './youtube.png';
 
 const App = () => {
   return (
-    // <img src={logo} alt="logo" />
+      <>
+      <img className="youtubeLogo" src={logo} alt="logo" />
       <StoreProvider>
         <Router>
         <SearchVideo />
@@ -22,6 +23,7 @@ const App = () => {
           </Switch>
         </Router>
       </StoreProvider>
+      </>
   );
 }
 

@@ -7,13 +7,13 @@
   pointer-events: none;
 }
 
-/* img {
-  margin-left: 1030px;
-  margin-top: 40px;
-  width: 10%;
-  height: 10%;
+.youtubeLogo {
+  margin-left: 1090px;
+  margin-top: 0px;
+  width: 8%;
+  height: 8%;
   
-} */
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
