@@ -1,22 +1,26 @@
 .searchVideo {
-    margin: auto;
-    margin-top: 20px;    
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
+  margin-top: 1%;
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
 
-    input {
-        width: 40%;
-        padding: 5px 20px;
-        direction: rtl;
-    }
+.youtubeLogo {
+  position: absolute;
+  display: flex;
+  margin-left: 40%;
+  width: 7%;
+}
 
-    button {
-        padding: 5px 20px;
-    }
-    
-      
+.searchInput {
+  padding: 5px;
+  width: 30%;
+  height: 60%;
+}
 
+.searchBtn {
+  padding: 5px;
+  height: 60%;
 }

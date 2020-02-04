@@ -1,8 +1,8 @@
-const express = require('express')
+const express = require("express");
 const app = express();
-const rp = require('request-promise');
-const qs = require('querystring');
-const KEY = 'AIzaSyCiWZ6dmHKrOEnTRVX_MM9nBhhbWPv28bw';
+const rp = require("request-promise");
+const qs = require("querystring");
+const KEY = "AIzaSyCiWZ6dmHKrOEnTRVX_MM9nBhhbWPv28bw";
 // const url = require('url');
 
 app.get('/videos', async (req, res) => {   
@@ -66,4 +66,3 @@ const searchVideos = async (value) => {
 
 
 app.listen(5000);
-

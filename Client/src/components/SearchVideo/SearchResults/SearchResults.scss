@@ -1,24 +1,29 @@
-.searchResultVideo{
-    width: 80%;
+.searchResults{
+    width: 94%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
     flex-wrap: wrap;    
     background: rgb(249, 249, 249);
-    margin-top: 70px;
+    margin-top: 20px;
+    
+    
 }
-.feedVideo{
-    width: 250px;
-    height: 250px;
-    display: flex;
-    margin: 20px;
+.searchResultVideo {
+    display: flex;    
+    flex-direction: row;  
+    margin-top: 17px;
+    margin-right: 25px;
     
-    
-    li{
-        list-style: none;
-        margin: 0;
-        padding: 0 10px;
+    .title {
+        padding-right: 15px;
+
+    }
+    img {
+        width: 246px;
+        height: 138px;
     }
 
 }
+

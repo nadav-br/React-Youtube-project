@@ -1,10 +1,10 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, { useContext, useState, useEffect } from "react";
 import SideVideoList from "./NextInLine/sideVideoList";
 import Player from "./SelectedVideo/Player/Player";
 import ActionButtons from "./SelectedVideo/Discription/ActionButtons/ActionButtons";
 import "./VideoPage.scss";
 import _ from "lodash";
-import {Context} from "../Store/StoreProvider";
+import { Context } from "../Store/StoreProvider";
 
 const VideoPage = (props) => {
   const videoList = useContext(Context);  
@@ -45,4 +45,5 @@ const VideoPage = (props) => {
 }
 
 
-export default VideoPage
+
+export default VideoPage;

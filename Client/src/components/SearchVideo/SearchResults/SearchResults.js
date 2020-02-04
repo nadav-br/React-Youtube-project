@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import SearchResultVideo from './SearchResultVideo/SrearchResultVideo'
+import { Link } from "react-router-dom";
 import './SearchResults.scss'
 
 function SearchResults() {
@@ -12,16 +13,16 @@ function SearchResults() {
         fetch(`http://localhost:3000/search?q=${id}`)
         .then(res => res.json())
         .then(videoData => {    
-        setSearch(videoData)
-        
+        setSearch(videoData)        
         })
-    },[id])
-    
+    },[id])    
     return (
         <div className="searchResults">         
           {search.map(video => {     
-              return (     
-              <SearchResultVideo key={video.id} {...video} />
+              return (   
+                <Link to={`/video-page/${video.id}`}>                
+                <SearchResultVideo key={video.id} {...video} />
+                </Link>
               )
           })}
         </div>

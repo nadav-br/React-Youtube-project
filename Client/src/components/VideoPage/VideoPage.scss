@@ -14,7 +14,36 @@
         }
 
     }
+  }
+.likesBtn {
+  margin-left: 550px;
+}
+.desc {
+  height: 300px;
+  width: 700px;
+  overflow: scroll;
 }
 
+.num {
+  padding: 2px;
+  width: 15px;
+}
+// .videoPage {
+//   margin-top: 20px;
+//   display: flex;
+//   justify-content: space-evenly;
 
+//   .player {
+//     display: flex;
+//     align-self: center;
+//   }
 
+//   .likesBtn {
+//     display: flex;
+//     align-self: center;
+//   }
+//   .unlikesBtn {
+//     display: flex;
+//     align-self: center;
+//   }
+// }

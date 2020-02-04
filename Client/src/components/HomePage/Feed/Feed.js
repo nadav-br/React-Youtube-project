@@ -3,9 +3,7 @@ import FeedVideo from "./FeedVideo/FeedVideo";
 import { Context } from "../../Store/StoreProvider";
 import { Link } from "react-router-dom";
 
-
 const Feed = () => {
-
   const videoslist = useContext(Context);
   console.log('feed videoslist', videoslist);
   
