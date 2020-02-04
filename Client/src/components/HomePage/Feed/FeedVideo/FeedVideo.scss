@@ -7,22 +7,21 @@
     background: rgb(249, 249, 249);
     margin-top: 20px;
 }
-.feedVideo{
-    width: 250px;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin: 20px;
-    
-    iframe{
-        width: 280px;
-        height: 150px;
-    }
-    li{
-        list-style: none;
-        margin: 0;
-        padding: 0 10px;
-    }
+.feedVideo {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 20px;
 
+  iframe {
+    width: 280px;
+    height: 150px;
+  }
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0 10px;
+  }
 }
