@@ -9,7 +9,7 @@ app.get('/videos', async (req, res) => {
         const data = await requestVideos();
         data.map(value => {
             value.likes = 3;
-            value.unLikes = 0;
+            value.unLikes = 2;
             value.comments = "";
         });
         res.json(data);

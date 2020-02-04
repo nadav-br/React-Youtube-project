@@ -6,7 +6,11 @@ const ActionButtons = (props) => {
   
   return (
     <div className="actionsBtn">
-      <VideoBtn addLike={props.addLike} likes={props.likes} />
+      <VideoBtn 
+        addLike={props.addLike} 
+        likes={props.likes}
+         
+      />
     </div>
   );  
 }

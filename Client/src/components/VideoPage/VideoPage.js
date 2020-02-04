@@ -7,22 +7,37 @@ import _ from "lodash";
 import {Context} from "../Store/StoreProvider";
 
 const VideoPage = (props) => {
-  const videoList = useContext(Context);
-  const videoData = _.find(videoList,{id: props.match.params.id})
+  const videoList = useContext(Context);  
+  const [video, setVideo] = useState({});
+  const [videoTitle, setVideoTitle] = useState("");
+  const [likes, setLikes] = useState(0);
+  const [unLikes, setUnLikes] = useState(0);
 
- 
-  const [likes, setLikes] = useState(videoData.likes);
-
-    const addLike = () => {
-      setLikes(likes + 1);
+  useEffect(() => {
+    if (videoList.length === 0) {
+      return;
     }
+    const filterVideo = _.find(videoList,{id: props.match.params.id});
+    setVideo(filterVideo)
+    setVideoTitle(filterVideo.snippet.title);
+    setLikes(filterVideo.likes);
+    setUnLikes(filterVideo.unLikes);
+    // setId(id);
+    console.log(filterVideo)
+  }, [videoList]);
 
 
-   return (
+  
+  
+  const addLike = () => {
+    
+  }
+
+  return (
         <div className="videoPage">
             <SideVideoList />
-            <Player id={props.match.params.id} title={videoData.snippet.title} />
-            <ActionButtons addLike={addLike} likes={likes}/>
+            <Player id={props.match.params.id} title={videoTitle} />
+            <ActionButtons addLike={addLike} likes={likes} />             
         </div>
         )
 }

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const Feed = () => {
 
   const videoslist = useContext(Context);
+  console.log('feed videoslist', videoslist);
   
     return (
       <div className="feed">         

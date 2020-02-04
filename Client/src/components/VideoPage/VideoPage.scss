@@ -1,16 +1,18 @@
-.videoPage{
+.videoPage {
     display: flex;
     justify-content: flex-start;
 
-    .movie{
+    .movie {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        .player{
+        
+        .player {
             width:700px;
             height:400px;
             margin-left:50px;
         }
+
     }
 }
 
