@@ -12,6 +12,8 @@ const VideoPage = (props) => {
   const [videoTitle, setVideoTitle] = useState("");
   const [likes, setLikes] = useState(0);
   const [unLikes, setUnLikes] = useState(0);
+  const [id, SetId] = useState("");
+  const [cliked, setClicked] = useState(true)
 
   useEffect(() => {
     if (videoList.length === 0) {
@@ -22,21 +24,21 @@ const VideoPage = (props) => {
     setVideoTitle(filterVideo.snippet.title);
     setLikes(filterVideo.likes);
     setUnLikes(filterVideo.unLikes);
-    // setId(id);
-    console.log(filterVideo)
+    SetId(filterVideo.id);
+    setClicked(cliked);
+
+    // console.log("filterVideo",filterVideo)
   }, [videoList]);
-
-
-  
   
   const addLike = () => {
-    
+      setClicked(false);
+      console.log("second",cliked);
   }
 
   return (
         <div className="videoPage">
             <SideVideoList />
-            <Player id={props.match.params.id} title={videoTitle} />
+            <Player id={id} title={videoTitle} />
             <ActionButtons addLike={addLike} likes={likes} />             
         </div>
         )
