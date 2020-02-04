@@ -6,15 +6,13 @@ import VideoPage from "./components/VideoPage/VideoPage";
 import HomePage from "./components/HomePage/HomePage";
 import SearchVideo from "./components/SearchVideo/SearchVideo";
 import SearchResults from "./components/SearchVideo/SearchResults/SearchResults";
-import logo from "./youtube.png";
 
 const App = () => {
   return (
-      <>
-      <img className="youtubeLogo" src={logo} alt="logo" />
+    <>
       <StoreProvider>
         <Router>
-        <SearchVideo />
+          <SearchVideo />
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/video-page/:id" exact component={VideoPage} />
@@ -22,7 +20,7 @@ const App = () => {
           </Switch>
         </Router>
       </StoreProvider>
-      </>
+    </>
   );
 };
 
