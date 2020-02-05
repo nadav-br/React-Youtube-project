@@ -6,45 +6,63 @@ import "./VideoPage.scss";
 import _ from "lodash";
 import { Context } from "../Store/StoreProvider";
 
-const VideoPage = props => {
-  const videoList = useContext(Context);
-  const videoData = _.find(videoList, { id: props.match.params.id });
-  console.log(videoData);
-  const [likes, setLikes] = useState(videoData.likes);
+const VideoPage = (props) => {
+  const videoList = useContext(Context);  
+  const [video, setVideo] = useState({});
+  const [videoTitle, setVideoTitle] = useState("");
+  const [likes, setLikes] = useState(0);
+  const [unLikes, setUnLikes] = useState(0);
+  const [id, SetId] = useState("");
+  const [clicked, setClicked] = useState(false)
 
+  useEffect(() => {
+    if (videoList.length === 0) {
+      return;
+    }
+    const filterVideo = _.find(videoList,{id: props.match.params.id});
+    setVideo(filterVideo)
+    setVideoTitle(filterVideo.snippet.title);
+    setLikes(filterVideo.likes);
+    setUnLikes(filterVideo.unLikes);
+    SetId(filterVideo.id);
+    setClicked(clicked);
+
+    // console.log("filterVideo",filterVideo)
+  }, [videoList]);
+
+  
   const addLike = () => {
-    setLikes(likes + 1);
-  };
-  const removeLike = () => {
-    setLikes(likes - 1);
-  };
-
+    if(!clicked){
+      setLikes(likes + 1)
+      setClicked(true);
+    }else{
+      setLikes(likes - 1)
+      setClicked(false);
+    }
+  }
+  const addUnLikes = () => {
+    if(!clicked){
+      setUnLikes(unLikes + 1)
+      setClicked(true);
+    }else{
+      setUnLikes(unLikes - 1)
+      setClicked(false);
+    }
+  }
+  
   return (
-    <div className="videoPage">
-      <SideVideoList className="sideVideoList" />
-      <div className="video">
-        <Player
-          id={props.match.params.id}
-          title={videoData.snippet.title}
-          desc={videoData.snippet.description}
-          className="player"
-        />
+        <div className="videoPage">
+            <SideVideoList />
+            <Player id={id} title={videoTitle} />
+            <ActionButtons 
+            addUnLikes={addUnLikes} 
+            unLikes={unLikes} 
+            addLike={addLike} 
+            likes={likes} />             
+        </div>
+        )
+}
 
-        {/* <ActionButtons
-        addLike={addLike}
-        likes={likes}
-        className="actionButtons"
-      /> */}
-        <button className="likesBtn" onClick={addLike}>
-          Add Like
-        </button>
-        <button className="unlikesBtn" onClick={removeLike}>
-          Remove Like
-        </button>
-        <input value={likes} className="num" />
-      </div>
-    </div>
-  );
-};
+
 
 export default VideoPage;

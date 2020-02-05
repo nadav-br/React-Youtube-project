@@ -11,9 +11,10 @@ useEffect(() => {
   fetch('http://localhost:3000/videos')
     .then(res => res.json())
     .then(videoslist => {
+      // console.log(videoslist)
       setVideoList(videoslist)
-      //console.log(videoslist)
     })
+
 },[])
   
     return (
