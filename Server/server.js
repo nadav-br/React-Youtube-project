@@ -3,7 +3,14 @@ const app = express();
 const rp = require("request-promise");
 const qs = require("querystring");
 const KEY = "AIzaSyCiWZ6dmHKrOEnTRVX_MM9nBhhbWPv28bw";
-// const url = require('url');
+// const {getDB} = require("./db");
+// const usersRoute = require("./users");
+
+// app.use(express.json())
+
+// getDB()
+
+// app.use('/users',usersRoute)
 
 app.get("/videos", async (req, res) => {
   const data = await requestVideos();
