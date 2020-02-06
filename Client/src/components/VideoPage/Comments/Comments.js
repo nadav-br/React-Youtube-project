@@ -2,16 +2,16 @@ import React, { useState } from "react";
 
 const Comments = ({ comments }) => {
   const [newComment, setNewComment] = useState("");
-  const [c, setC] = useState();
+  const [c, setC] = useState([]);
 
-  const valInput = e => {
-    let input = e.target.value;
-    setNewComment(input);
+  const valInput = e => {    
+    setNewComment(e.target.value);    
   };
 
-  const addComment = y => {
-    let added = newComment;
-    setNewComment(added);
+  const addComment = () => {
+     
+   console.log(newComment)
+   
   };
 
   return (
@@ -23,11 +23,10 @@ const Comments = ({ comments }) => {
         onChange={valInput}
       ></input>
       <button onClick={addComment}>Add Comment</button>
-
+      
       <ul>
         {comments.map(comment => (
-          <li>
-            <h6>{newComment}</h6>
+          <li>            
             <h6>{comment.id}</h6>
             <h6>{comment.first_name}</h6>
             <h6>{comment.comment}</h6>
@@ -39,3 +38,8 @@ const Comments = ({ comments }) => {
 };
 
 export default Comments;
+
+import Comments from "./Comments/Comments";
+const [comments, setComments] = useState([]);
+setComments(filterVideo.comments);
+<Comments comments={comments} />
