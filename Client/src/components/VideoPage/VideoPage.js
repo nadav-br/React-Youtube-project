@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import SideVideoList from "./NextInLine/sideVideoList";
-import Player from "./SelectedVideo/Player/Player";
-import ActionButtons from "./SelectedVideo/Discription/ActionButtons/ActionButtons";
+import Movie from "../VideoPage/Movie/Movie";
 import "./VideoPage.scss";
 import _ from "lodash";
 import { Context } from "../Store/StoreProvider";
@@ -53,12 +52,14 @@ const VideoPage = (props) => {
   return (
         <div className="videoPage">
             <SideVideoList />
-            <Player id={id} title={videoTitle} />
-            <ActionButtons 
-            addUnLikes={addUnLikes} 
-            unLikes={unLikes} 
-            addLike={addLike} 
-            likes={likes} />             
+            <Movie 
+              id={id} 
+              title={videoTitle}
+              addUnLikes={addUnLikes} 
+              unLikes={unLikes} 
+              addLike={addLike} 
+              likes={likes} 
+            />             
         </div>
         )
 }
