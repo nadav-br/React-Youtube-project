@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Comments = ({ comments }) => {
   const [newComment, setNewComment] = useState("");
