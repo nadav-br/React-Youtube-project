@@ -1,20 +1,25 @@
 import React,{useEffect,useState} from "react";
+import _ from "lodash";
 import Comment from "./Comment";
+import Input from "./Input";
 
-const Comments = ({comments}) => {
+const Comments = ({comments, id}) => {
   
 const [comList,setComList] = useState([]);
-
 
 const addComment = (valueRef) => {
   const newComment = {
     user:"User name",
     comment:valueRef,
-    id:333,
+    id:id,
+    newCommentArr: [],
   }
-  setComList([...comList,newComment]);
+  let filterComment = _.find(comList, { id:111 });
+  filterComment.newCommentArr.push(newComment)
+  // console.log(id);
+  // console.log(filterComment);
+  setComList([...comList]);
 }
-
 useEffect(() => {
   setComList(comList)
 },[comList]);
@@ -33,10 +38,11 @@ console.log("B_comList",comList);
 
   return (
     <div>
+      <Input addComment={addComment}/>
       {comList.map(comment => {
         return(
           <div>
-            <Comment comment={comment} addComment={addComment} />
+            <Comment comment={comment} addComment={addComment} id={id} />
           </div>
         )
       })}
