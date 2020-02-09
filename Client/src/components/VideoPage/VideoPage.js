@@ -4,7 +4,6 @@ import Movie from "../VideoPage/Movie/Movie";
 import "./VideoPage.scss";
 import _ from "lodash";
 import { Context } from "../Store/StoreProvider";
-import Comments from "./Comments/Comments";
 
 const VideoPage = props => {
   const videoList = useContext(Context);
@@ -27,7 +26,6 @@ const VideoPage = props => {
     setUnLikes(filterVideo.unLikes);
     SetId(filterVideo.id);
     setClicked(clicked);
-    console.log("filter", filterVideo.comments);
     setComments(filterVideo.comments);
 
     // console.log("filterVideo",filterVideo)
@@ -62,6 +60,7 @@ const VideoPage = props => {
               unLikes={unLikes} 
               addLike={addLike} 
               likes={likes} 
+              comments={comments}
             />             
         </div>
         )

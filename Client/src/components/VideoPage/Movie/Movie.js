@@ -1,5 +1,7 @@
 import React from "react";
 import Actions from "./Actions/Actions"
+import Comments from "../Movie/Comments/Comments";
+import Input from "./Comments/Input";
 
 function Movie(props) {
   return (
@@ -18,6 +20,7 @@ function Movie(props) {
       <div>
         <p className="desc">{props.desc}</p>
       </div>
+      <Comments comments={props.comments}/>
     </div>
   );
 }
