@@ -10,6 +10,7 @@ function Movie(props) {
         src={`https://www.youtube.com/embed/${props.id}`}
       />
       <h3>{props.title}</h3>
+      <h6>views {props.views}</h6>
       <Actions 
             addUnLikes={props.addUnLikes} 
             unLikes={props.unLikes} 

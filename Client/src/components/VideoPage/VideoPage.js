@@ -4,6 +4,7 @@ import Movie from "../VideoPage/Movie/Movie";
 import "./VideoPage.scss";
 import _ from "lodash";
 import { Context } from "../Store/StoreProvider";
+const axios = require("axios");
 
 const VideoPage = props => {
   const videoList = useContext(Context);
@@ -14,12 +15,13 @@ const VideoPage = props => {
   const [id, SetId] = useState("");
   const [clicked, setClicked] = useState(false);
   const [comments, setComments] = useState([]);
-
+  const [views, setViews] = useState(0);
+  const filterVideo = _.find(videoList, { id: props.match.params.id });
   useEffect(() => {
     if (videoList.length === 0) {
       return;
     }
-    const filterVideo = _.find(videoList, { id: props.match.params.id });
+    
     setVideo(filterVideo);
     setVideoTitle(filterVideo.snippet.title);
     setLikes(filterVideo.likes);
@@ -27,8 +29,9 @@ const VideoPage = props => {
     SetId(filterVideo.id);
     setClicked(clicked);
     setComments(filterVideo.comments);
+    setViews(filterVideo.views)
 
-    // console.log("filterVideo",filterVideo)
+    console.log("filterVideo",filterVideo)
   }, [videoList]);
 
   const addLike = () => {
@@ -49,7 +52,13 @@ const VideoPage = props => {
       setClicked(false);
     }
   }
-  
+
+  useEffect(()=> {  
+         
+    axios.post("http://localhost:3000/movies", filterVideo)
+    setViews(views + 1)
+  },[filterVideo])
+  // console.log(filterVideo)
   return (
         <div className="videoPage">
             <SideVideoList />
@@ -61,6 +70,7 @@ const VideoPage = props => {
               addLike={addLike} 
               likes={likes} 
               comments={comments}
+              views={views}
             />             
         </div>
         )

@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {useParams} from "react-router-dom";
 import SearchResultVideo from './SearchResultVideo/SrearchResultVideo'
 import { Link } from "react-router-dom";
 import './SearchResults.scss'
 
 function SearchResults() {
-
+  // const videoslist = useContext(Context);
     const [search, setSearch] = useState([]);
     const {id} = useParams();
 

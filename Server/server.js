@@ -3,18 +3,23 @@ const app = express();
 const rp = require("request-promise");
 const qs = require("querystring");
 const KEY = "AIzaSyCiWZ6dmHKrOEnTRVX_MM9nBhhbWPv28bw";
-// const {getDB} = require("./db");
+const {getDB} = require("./db");
 // const usersRoute = require("./users");
+const moviesRoute = require("./movies");
 
-// app.use(express.json())
+app.use(express.json())
 
-// getDB()
+getDB()
 
 // app.use('/users',usersRoute)
+app.use('/movies', moviesRoute)
+
+
 
 app.get('/videos', async (req, res) => {   
         const data = await requestVideos();
         data.map(value => {
+            value.views = 0;
             value.likes = 3;
             value.unLikes = 2;
             value.comments = [{user:"User Name",comment:"this is a comment" ,id:111 ,newCommentArr:[]},
@@ -24,6 +29,8 @@ app.get('/videos', async (req, res) => {
         
         
 })
+
+
 
 
     const requestVideos = async () => {
@@ -49,7 +56,7 @@ app.get('/videos', async (req, res) => {
 
 app.get('/search', async (req, res) => {   
     //console.log(req.query)
-    const data = await searchVideos(req.query.q)
+    const data = await searchVideos(req.query.q);
     res.json(data)
 })
 
