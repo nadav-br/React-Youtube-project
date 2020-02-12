@@ -16,12 +16,16 @@ const VideoPage = props => {
   const [clicked, setClicked] = useState(false);
   const [comments, setComments] = useState([]);
   const [views, setViews] = useState(0);
-  const filterVideo = _.find(videoList, { id: props.match.params.id });
+  
+  
+  
+
   useEffect(() => {
     if (videoList.length === 0) {
       return;
-    }
-    
+    }    
+    const filterVideo = _.find(videoList, { id: props.match.params.id });
+    console.log("filtervideo",filterVideo)
     setVideo(filterVideo);
     setVideoTitle(filterVideo.snippet.title);
     setLikes(filterVideo.likes);
@@ -29,9 +33,20 @@ const VideoPage = props => {
     SetId(filterVideo.id);
     setClicked(clicked);
     setComments(filterVideo.comments);
-    setViews(filterVideo.views)
+    setViews(filterVideo.views);    
 
-    console.log("filterVideo",filterVideo)
+    fetch("http://localhost:3000/movies")
+    .then(res => res.json())
+    .then(data => {
+      const list = data;      
+      const filterList = _.find(list, { id: props.match.params.id });
+      console.log("filterList", filterList)
+      if(filterList === undefined) {
+        filterVideo.views++
+        axios.post("http://localhost:3000/movies", filterVideo) 
+        setViews(filterVideo.views)
+      }      
+    })  
   }, [videoList]);
 
   const addLike = () => {
@@ -53,11 +68,10 @@ const VideoPage = props => {
     }
   }
 
-  useEffect(()=> {  
-         
-    axios.post("http://localhost:3000/movies", filterVideo)
-    setViews(views + 1)
-  },[filterVideo])
+  
+  // useEffect(()=> {  
+    
+  // },[])
   // console.log(filterVideo)
   return (
         <div className="videoPage">
