@@ -16,6 +16,7 @@ const VideoPage = props => {
   const [clicked, setClicked] = useState(false);
   const [comments, setComments] = useState([]);
   const [views, setViews] = useState(0);
+  console.log("videoList",videoList)
   
   
   

@@ -7,20 +7,25 @@ const Comments = ({ comments, id }) => {
   const [comList, setComList] = useState([]);
 
   const addComment = valueRef => {
+    const unique = () => 1 + (Math.random() * 2000) 
     const newComment = {
       user: "User name",
       comment: valueRef,
-      id: id,
+      id : unique(id),
       newCommentArr: []
     };
-    let filterComment = _.find(comList, { id: 111 });
-    filterComment.newCommentArr.unshift(newComment);
-    // console.log(id);
-    // console.log(filterComment);
-    setComList([...comList]);
-  };
-  useEffect(() => {
-    setComList(comList);
+    console.log('new',newComment.id)
+    let filterComment = _.find(comList, { id });
+    // if(filterComment === undefined){
+      // filterComment.newCommentArr.unshift(newComment);
+      // // console.log(id);
+      // console.log(filterComment.newCommentArr);
+      setComList([...comList, newComment]);
+      return newComment;
+    };
+    useEffect(() => {
+      setComList(comList);
+      console.log('comlist',comList)
   }, [comList]);
 
   useEffect(() => {

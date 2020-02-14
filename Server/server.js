@@ -22,8 +22,7 @@ app.get('/videos', async (req, res) => {
             value.views = 0;
             value.likes = 3;
             value.unLikes = 2;
-            value.comments = [{user:"User Name",comment:"this is a comment" ,id:111 ,newCommentArr:[]},
-                              {user:"User Name",comment:"this is a comment" ,id:222 ,newCommentArr:[]}];
+            value.comments = [];
         });
         res.json(data);
         
