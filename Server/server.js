@@ -6,10 +6,21 @@ const KEY = "AIzaSyCiWZ6dmHKrOEnTRVX_MM9nBhhbWPv28bw";
 const {getDB} = require("./db");
 // const usersRoute = require("./users");
 const moviesRoute = require("./movies");
+const path = require('path');
 
 app.use(express.json())
 
 getDB()
+
+
+// 1. express.static
+app.use('/', express.static(path.join(__dirname, '../Client/build')));
+
+// 2. Procfile : a> npm i , b> npm run build, c> node server.js
+
+// 3. env vars: a> DB_URL , b> PORT
+
+
 
 // app.use('/users',usersRoute)
 app.use('/movies', moviesRoute)
@@ -24,10 +35,15 @@ app.get('/videos', async (req, res) => {
             value.unLikes = 2;
             value.comments = [];
         });
-        res.json(data);
-        
-        
+        res.json(data);               
 })
+
+// axios.post("/movies", async (req, res) => {
+//     const data = await requestVideos();
+//     console.log(data)
+//     res.json(data);
+    
+// })
 
 
     const requestVideos = async () => {
@@ -77,4 +93,4 @@ const searchVideos = async (value) => {
 }
 
 
-app.listen(5000);
+app.listen(process.env.PORT || 5000);
