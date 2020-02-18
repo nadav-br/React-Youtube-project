@@ -7,6 +7,7 @@ const {getDB} = require("./db");
 // const usersRoute = require("./users");
 const moviesRoute = require("./movies");
 const path = require('path');
+const { MoviesModel } = require('./moviesModel')
 
 app.use(express.json())
 
@@ -23,27 +24,29 @@ app.use('/', express.static(path.join(__dirname, '../Client/build')));
 
 
 // app.use('/users',usersRoute)
-app.use('/movies', moviesRoute)
-
-
+app.use('/movies', moviesRoute);
 
 app.get('/videos', async (req, res) => {   
-        const data = await requestVideos();
+        const data = await requestVideos();        
         data.map(value => {
             value.views = 0;
             value.likes = 3;
             value.unLikes = 2;
             value.comments = [];
-        });
-        res.json(data);               
+        });  
+        data.forEach(movie => {
+            const result = new MoviesModel(movie);
+            result.save();
+        })                  
+        res.json(data)
+        res.send(result);
 })
 
-// axios.post("/movies", async (req, res) => {
-//     const data = await requestVideos();
-//     console.log(data)
-//     res.json(data);
-    
-// })
+// async (req, res) => {
+//     const movie = new MoviesModel(req.body.test)
+//     const result = await movie.save();
+//     res.send(result);  
+// }
 
 
     const requestVideos = async () => {

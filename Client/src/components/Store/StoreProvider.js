@@ -8,7 +8,7 @@ const StoreProvider = (props) => {
   const [videoslist, setVideoList] = useState([])
 
   useEffect(() => {
-  fetch('http://localhost:3000/videos')
+  fetch('http://localhost:3000/movies')
     .then(res => res.json())
     .then(videoslist => {
       // console.log(videoslist)
