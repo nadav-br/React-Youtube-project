@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import _ from "lodash";
 import Comment from "./Comment";
 import Input from "./Input";
+const uuidv4 = require('uuid/v4');
 
 const Comments = ({ comments, id }) => {
   const [comList, setComList] = useState([]);
@@ -41,7 +42,7 @@ const Comments = ({ comments, id }) => {
       <Input addComment={addComment} />
       {comList.map(comment => {
         return (
-          <div>
+          <div key={uuidv4()}>
             <Comment comment={comment} addComment={addComment} id={id} />
           </div>
         );
