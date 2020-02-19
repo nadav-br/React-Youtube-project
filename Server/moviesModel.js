@@ -6,12 +6,24 @@ const MovieSchema = new Schema({
         type: String,
         required: true
     },
-    // views: Number,    
-    // title: String, 
+    snippet: {
+        title: String,
+        thumbnails: {
+            default:{
+                url: String,
+            },
+            medium: {
+                url: String,
+            }
+        }
+
+    },
+    
     likes: Number,
     unLikes: Number,        
     comments: Object,
-    views: Number
+    views: Number,
+    
 })
 
 const MoviesModel = model("movie", MovieSchema);

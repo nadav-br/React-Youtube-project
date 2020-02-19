@@ -2,7 +2,9 @@ import React, {useEffect, useState, useContext} from 'react';
 import {useParams} from "react-router-dom";
 import SearchResultVideo from './SearchResultVideo/SrearchResultVideo'
 import { Link } from "react-router-dom";
-import './SearchResults.scss'
+import './SearchResults.scss';
+const uuidv4 = require('uuid/v4');
+
 
 function SearchResults() {
   // const videoslist = useContext(Context);
@@ -15,12 +17,13 @@ function SearchResults() {
         .then(videoData => {    
         setSearch(videoData)        
         })
-    },[id])    
+    },[id])   
+    console.log("search",search) 
     return (
         <div className="searchResults">         
           {search.map(video => {     
               return (   
-                <Link to={`/video-page/${video.id}`}>                
+                <Link key={uuidv4()} to={`/video-page/${video.id}`}>                
                 <SearchResultVideo key={video.id} {...video} />
                 </Link>
               )

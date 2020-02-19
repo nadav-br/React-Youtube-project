@@ -6,28 +6,47 @@ const KEY = "AIzaSyCiWZ6dmHKrOEnTRVX_MM9nBhhbWPv28bw";
 const {getDB} = require("./db");
 // const usersRoute = require("./users");
 const moviesRoute = require("./movies");
+const path = require('path');
+const { MoviesModel } = require('./moviesModel')
 
 app.use(express.json())
 
 getDB()
 
+
+// 1. express.static
+app.use('/', express.static(path.join(__dirname, '../Client/build')));
+
+// 2. Procfile : a> npm i , b> npm run build, c> node server.js
+
+// 3. env vars: a> DB_URL , b> PORT
+
+
+
 // app.use('/users',usersRoute)
-app.use('/movies', moviesRoute)
-
-
+app.use('/movies', moviesRoute);
 
 app.get('/videos', async (req, res) => {   
-        const data = await requestVideos();
+        const data = await requestVideos();        
         data.map(value => {
             value.views = 0;
             value.likes = 3;
             value.unLikes = 2;
             value.comments = [];
-        });
-        res.json(data);
-        
-        
+        });  
+        data.forEach(movie => {
+            const result = new MoviesModel(movie);
+            result.save();
+        })                  
+        res.json(data)
+        res.send(result);
 })
+
+// async (req, res) => {
+//     const movie = new MoviesModel(req.body.test)
+//     const result = await movie.save();
+//     res.send(result);  
+// }
 
 
     const requestVideos = async () => {
@@ -77,4 +96,4 @@ const searchVideos = async (value) => {
 }
 
 
-app.listen(5000);
+app.listen(process.env.PORT || 5000);

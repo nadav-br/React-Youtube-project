@@ -10,8 +10,10 @@ const Feed = () => {
       <div className="feed">         
           {videoslist.map(video => {
               return (
-                  <FeedVideo key={video.id} {...video} />
-               );
+                <Link key={uuidv4()} to={`/video-page/${video.id}`}>
+                  <FeedVideo  {...video} />
+               </Link>
+              );
             })
           }
       </div>
