@@ -2,31 +2,26 @@ import React, { useEffect, useState } from "react";
 import _ from "lodash";
 import Comment from "./Comment";
 import Input from "./Input";
+const axios = require("axios");
 
-const Comments = ({ comments, id }) => {
+const Comments = ({ comments }) => {
   const [comList, setComList] = useState([]);
-
+  
   const addComment = valueRef => {
-    const unique = () => 1 + (Math.random() * 2000) 
     const newComment = {
       user: "User name",
       comment: valueRef,
-      id : unique(id),
+      id : 1 + (Math.random() * 2000),
       newCommentArr: []
-    };
-    console.log('new',newComment.id)
-    let filterComment = _.find(comList, { id });
-    // if(filterComment === undefined){
-      // filterComment.newCommentArr.unshift(newComment);
-      // // console.log(id);
-      // console.log(filterComment.newCommentArr);
-      setComList([...comList, newComment]);
-      return newComment;
-    };
+    }
+    setComList([...comList,newComment]);
+  }
+
+  
+    
     useEffect(() => {
       setComList(comList);
-      console.log('comlist',comList)
-  }, [comList]);
+    }, [comList]);
 
   useEffect(() => {
     if (comments.length === 0) {
@@ -34,7 +29,9 @@ const Comments = ({ comments, id }) => {
     }
     setComList(comments);
   }, [comments]);
-  console.log("B_comList", comList);
+
+  comList.reverse();
+  console.log('comlist',comList);
 
   return (
     <div>
@@ -42,7 +39,7 @@ const Comments = ({ comments, id }) => {
       {comList.map(comment => {
         return (
           <div>
-            <Comment comment={comment} addComment={addComment} id={id} />
+            <Comment comment={comment} addComment={addComment} />
           </div>
         );
       })}

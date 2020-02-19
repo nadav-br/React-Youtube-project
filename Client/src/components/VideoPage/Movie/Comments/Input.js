@@ -6,6 +6,7 @@ function Input(props) {
         e.preventDefault();
         // console.log(valueRef.current.value);
         props.addComment(valueRef.current.value);
+
     }
     return (
 
