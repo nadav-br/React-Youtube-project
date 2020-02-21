@@ -39,7 +39,7 @@ const Comments = ({ comments }) => {
       {comList.map(comment => {
         return (
           <div key={uuidv4()}>
-            <Comment comment={comment} addComment={addComment} id={id} />
+            <Comment comment={comment} addComment={addComment} />
           </div>
         );
       })}

@@ -13,7 +13,7 @@ router.get("/:id", async (req,res) => {
     
     const result = await MoviesModel.findOne({id:req.params.id})
     // console.log(result)
-    const movie = await MoviesModel.findById(req.params.id)
+    // const movie = await MoviesModel.findById(req.params.id)
 
     res.send(result)
 })
