@@ -1,7 +1,9 @@
 import React, {useContext} from 'react'
 import { Context } from "../../Store/StoreProvider";
 import SideVideo from "./SideVideo";
+import { Link } from "react-router-dom";
 const uuidv4 = require('uuid/v4');
+
 
 
 const SideVideoList = () => {
@@ -12,7 +14,10 @@ const SideVideoList = () => {
         <div className="SideVideoList">                
             {SideVideoList.map(video => {
                 return (
-                    <SideVideo key={uuidv4()} {...video}/>
+                    <Link key={uuidv4()} to={`/video-page/${video.id}`}>                
+                        <SideVideo key={uuidv4()} {...video}/>
+                    </Link>
+                    
                 )
             })}            
         </div>

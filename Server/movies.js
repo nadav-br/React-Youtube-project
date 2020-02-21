@@ -10,8 +10,12 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id", async (req,res) => {
+    
+    const result = await MoviesModel.findOne({id:req.params.id})
+    // console.log(result)
     const movie = await MoviesModel.findById(req.params.id)
-    res.send(movie)
+
+    res.send(result)
 })
 
 router.delete("/:id", async (req, res) => {

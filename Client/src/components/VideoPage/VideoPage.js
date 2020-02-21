@@ -16,10 +16,12 @@ const VideoPage = props => {
   const [clicked, setClicked] = useState(false);
   const [comments, setComments] = useState([]);
   const [views, setViews] = useState(0);
-  console.log("videoList",videoList)
+  console.log("videoList",props)
   
   
-  
+  // fetch(`http://localhost:3000/movies/?id=${props.match.params.id}`)
+  //   .then(res => res.json())
+  //   .then(data => console.log("data",data))
 
   useEffect(() => {
     if (videoList.length === 0) {
@@ -48,7 +50,7 @@ const VideoPage = props => {
         setViews(filterVideo.views)
       }      
     })  
-  }, [videoList]);
+  }, [videoList, props.match.params.id]);
 
   const addLike = () => {
     if (!clicked) {
