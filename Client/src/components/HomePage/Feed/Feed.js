@@ -4,16 +4,17 @@ import { Link } from "react-router-dom";
 const uuidv4 = require('uuid/v4');
 
 const Feed = () => {  
+
   const [videoslist, setVideoList] = useState([])
+
   useEffect(() => {
-    fetch('http://localhost:3000/movies')
+    fetch('http://localhost:3000/videos')
       .then(res => res.json())
       .then(videoslist => {
-         console.log(videoslist)
         setVideoList(videoslist)
-      })
-  
+    })  
   },[])
+  console.log("VIDS",videoslist)
     return (
       <div className="feed">         
           {videoslist.map(video => {

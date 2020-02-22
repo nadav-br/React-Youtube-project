@@ -31,7 +31,6 @@ const Comments = ({ comments }) => {
   }, [comments]);
 
   comList.reverse();
-  console.log('comlist',comList);
 
   return (
     <div>

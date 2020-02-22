@@ -24,6 +24,7 @@ app.get('/videos', async (req, res) => {
             value.unLikes = 2;
             value.comments = [];
         });  
+        
         data.forEach(movie => {
             const result = new MoviesModel(movie);
             result.save();
@@ -35,7 +36,7 @@ app.get('/videos', async (req, res) => {
     const requestVideos = async () => {
     let videoQuery = qs.stringify({
          part: "snippet",
-        maxResults: 20,
+        maxResults: 5,
          key: KEY,
         chart: 'mostPopular'
     })
@@ -50,13 +51,24 @@ app.get('/videos', async (req, res) => {
      const respone = await rp(options);
      //console.log(respone)
      return respone.body.items
-}
- 
+} 
 
 app.get('/search', async (req, res) => {   
-    //console.log(req.query)
     const data = await searchVideos(req.query.q);
-    res.json(data)
+    data.map(value => {
+        value.views = 0;
+        value.likes = 3;
+        value.unLikes = 2;
+        value.comments = [];
+        value.id = value.id.videoId;
+    });  
+    console.log("serv-search",data)
+    data.forEach(movie => {
+        const result = new MoviesModel(movie);
+        result.save();
+    })                  
+    res.json(data);
+    res.send(result);    
 })
 
 const searchVideos = async (value) => {
@@ -64,7 +76,7 @@ const searchVideos = async (value) => {
         part: 'snippet',
         key: KEY,
         q: value,
-        maxResults: 20
+        maxResults: 5
     })
     
     let options = {
@@ -74,7 +86,7 @@ const searchVideos = async (value) => {
         json: true // const data = await data.JSON();
     }
     const respone = await rp(options);
-    console.log(respone.body.items[0])
+    // console.log(respone.body.items[0])
      return respone.body.items
 }
 
