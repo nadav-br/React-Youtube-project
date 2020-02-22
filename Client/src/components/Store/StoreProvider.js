@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
 
-export const Context = React.createContext();
-export const Provider = Context.Provider;
+// export const Context = React.createContext();
+// export const Provider = Context.Provider;
 
-const StoreProvider = (props) => {
+// const StoreProvider = (props) => {
 
-  const [videoslist, setVideoList] = useState([])
+// //   const [videoslist, setVideoList] = useState([])
 
-  useEffect(() => {
-  fetch('http://localhost:3000/movies')
-    .then(res => res.json())
-    .then(videoslist => {
-      // console.log(videoslist)
-      setVideoList(videoslist)
-    })
+// //   useEffect(() => {
+// //   fetch('http://localhost:3000/movies')
+// //     .then(res => res.json())
+// //     .then(videoslist => {
+// //       // console.log(videoslist)
+// //       setVideoList(videoslist)
+// //     })
 
-},[])
+// // },[])
   
-    return (
-      <>
-        <Provider value={videoslist}>{props.children}</Provider>
-      </>
-    );
+//     return (
+//       <>
+//         <Provider value={videoslist}>{props.children}</Provider>
+//       </>
+//     );
   
-}
+// }
 
-export default StoreProvider;
+// export default StoreProvider;

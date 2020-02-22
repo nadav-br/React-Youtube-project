@@ -4,27 +4,17 @@ const rp = require("request-promise");
 const qs = require("querystring");
 const KEY = "AIzaSyCiWZ6dmHKrOEnTRVX_MM9nBhhbWPv28bw";
 const {getDB} = require("./db");
-// const usersRoute = require("./users");
 const moviesRoute = require("./movies");
 const path = require('path');
 const { MoviesModel } = require('./moviesModel')
-
 app.use(express.json())
-
+app.use('/movies', moviesRoute);
 getDB()
-
 
 // 1. express.static
 app.use('/', express.static(path.join(__dirname, '../Client/build')));
-
 // 2. Procfile : a> npm i , b> npm run build, c> node server.js
-
 // 3. env vars: a> DB_URL , b> PORT
-
-
-
-// app.use('/users',usersRoute)
-app.use('/movies', moviesRoute);
 
 app.get('/videos', async (req, res) => {   
         const data = await requestVideos();        
@@ -41,13 +31,6 @@ app.get('/videos', async (req, res) => {
         res.json(data)
         res.send(result);
 })
-
-// async (req, res) => {
-//     const movie = new MoviesModel(req.body.test)
-//     const result = await movie.save();
-//     res.send(result);  
-// }
-
 
     const requestVideos = async () => {
     let videoQuery = qs.stringify({

@@ -4,7 +4,6 @@ function Input(props) {
     let valueRef = React.createRef();
     const getInput = e => {
         e.preventDefault();
-        // console.log(valueRef.current.value);
         props.addComment(valueRef.current.value);
 
     }

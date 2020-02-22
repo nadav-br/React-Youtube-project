@@ -5,7 +5,6 @@ import logo from "./youtube.png";
 
 const SearchVideo = () => {
   const [input, setInput] = useState("");
-  //const [search, setSearch] = useState([]);
   let history = useHistory();
   const handleInput = e => {
     setInput(e.target.value);

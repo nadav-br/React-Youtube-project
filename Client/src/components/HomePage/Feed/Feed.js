@@ -1,13 +1,19 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect } from "react";
 import FeedVideo from "./FeedVideo/FeedVideo";
-import { Context } from "../../Store/StoreProvider";
 import { Link } from "react-router-dom";
 const uuidv4 = require('uuid/v4');
 
-const Feed = () => {
-  const videoslist = useContext(Context);
-  console.log('feed videoslist', videoslist);
+const Feed = () => {  
+  const [videoslist, setVideoList] = useState([])
+  useEffect(() => {
+    fetch('http://localhost:3000/movies')
+      .then(res => res.json())
+      .then(videoslist => {
+         console.log(videoslist)
+        setVideoList(videoslist)
+      })
   
+  },[])
     return (
       <div className="feed">         
           {videoslist.map(video => {

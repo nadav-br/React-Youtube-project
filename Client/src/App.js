@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import StoreProvider from "./components/Store/StoreProvider";
+// import StoreProvider from "./components/Store/StoreProvider";
 import VideoPage from "./components/VideoPage/VideoPage";
 import HomePage from "./components/HomePage/HomePage";
 import SearchVideo from "./components/SearchVideo/SearchVideo";
@@ -9,8 +9,7 @@ import SearchResults from "./components/SearchVideo/SearchResults/SearchResults"
 
 const App = () => {
   return (
-    <>
-      <StoreProvider>
+    <>      
         <Router>
           <SearchVideo />
           <Switch>
@@ -18,8 +17,7 @@ const App = () => {
             <Route path="/video-page/:id" exact component={VideoPage} />
             <Route path="/search-results/:id" exact component={SearchResults} />
           </Switch>
-        </Router>
-      </StoreProvider>
+        </Router>     
     </>
   );
 };
