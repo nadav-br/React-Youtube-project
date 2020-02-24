@@ -11,7 +11,7 @@ const VideoPage = props => {
   const [comments, setComments] = useState([]);
   const [views, setViews] = useState(0);
   
-  console.log(props)
+  console.log("props",props.match.params.id)
   useEffect(() => {
   fetch(`http://localhost:3000/movies/${props.match.params.id}`)
     .then(res => res.json())

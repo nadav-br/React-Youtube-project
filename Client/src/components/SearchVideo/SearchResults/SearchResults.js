@@ -4,11 +4,17 @@ import SearchResultVideo from './SearchResultVideo/SrearchResultVideo'
 import { Link } from "react-router-dom";
 import './SearchResults.scss';
 const uuidv4 = require('uuid/v4');
+const axios = require('axios').default;
 
 
 function SearchResults() {
     const [searchResults, setsearchResults] = useState([]);
     const {id} = useParams();
+
+    const putVidToDB = video => {
+      axios.post(`http://localhost:3000/movies`,video);
+      console.log("Svideo",video);
+    }
     
     useEffect(() => {
         fetch(`http://localhost:3000/search?q=${id}`)
@@ -22,7 +28,7 @@ function SearchResults() {
         <div className="searchResults">         
           {searchResults.map(video => {     
               return (   
-                <Link key={uuidv4()} to={`/video-page/${video.id}`}>                
+                <Link key={uuidv4()} onClick={() => putVidToDB(video)} to={`/video-page/${video.id}`}>                
                 <SearchResultVideo key={video.id} {...video} />
                 </Link>
               )

@@ -63,12 +63,12 @@ app.get('/search', async (req, res) => {
         value.id = value.id.videoId;
     });  
     console.log("serv-search",data)
-    data.forEach(movie => {
-        const result = new MoviesModel(movie);
-        result.save();
-    })                  
+    // data.forEach(movie => {
+    //     const result = new MoviesModel(movie);
+    //     result.save();
+    // })                  
     res.json(data);
-    res.send(result);    
+    // res.send(result);    
 })
 
 const searchVideos = async (value) => {
