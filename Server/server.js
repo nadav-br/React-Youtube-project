@@ -17,14 +17,8 @@ app.use('/', express.static(path.join(__dirname, '../Client/build')));
 // 3. env vars: a> DB_URL , b> PORT
 
 app.get('/videos', async (req, res) => {   
-        const data = await requestVideos();        
-        data.map(value => {
-            value.views = 0;
-            value.likes = 3;
-            value.unLikes = 2;
-            value.comments = [];
-        });  
-        
+        const data = await requestVideos();       
+               
         data.forEach(movie => {
             const result = new MoviesModel(movie);
             result.save();
@@ -35,7 +29,7 @@ app.get('/videos', async (req, res) => {
 
     const requestVideos = async () => {
     let videoQuery = qs.stringify({
-         part: "snippet",
+         part: "snippet, statistics",
         maxResults: 20,
          key: KEY,
         chart: 'mostPopular'
