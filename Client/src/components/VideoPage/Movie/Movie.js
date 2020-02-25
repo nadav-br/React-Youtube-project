@@ -3,6 +3,8 @@ import Actions from "./Actions/Actions"
 import Comments from "../Movie/Comments/Comments";
 
 function Movie(props) {
+
+  console.log("movie",props)
   return (
     <div className="movie">
       <iframe
@@ -17,9 +19,9 @@ function Movie(props) {
             addLike={props.addLike} 
             likes={props.likes} 
       />
-      <div>
+      {/* <div>
         <p className="desc">{props.desc}</p>
-      </div>
+      </div> */}
       <Comments comments={props.comments} id={props.id}/>
     </div>
   );

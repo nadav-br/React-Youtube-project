@@ -15,10 +15,16 @@ const MovieSchema = new Schema({
             medium: {
                 url: String,
             }
-        }
+        },
+        description: String,
+    },
+    statistics: {
+        viewCount: Number,
+        likeCount: Number,
+        dislikeCount: Number,
+        commentCount: Number,
 
     },
-    
     likes: Number,
     unLikes: Number,        
     comments: Object,

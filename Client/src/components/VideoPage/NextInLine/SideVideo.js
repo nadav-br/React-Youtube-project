@@ -2,6 +2,7 @@ import React from "react";
 import "./SideVideo.scss";
 
 const SideVideo = (props) => {
+  
     return(
     <div className="SideVideo">
       <p>{props.snippet.title}</p>

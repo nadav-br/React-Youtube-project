@@ -3,20 +3,20 @@ import _ from "lodash";
 import Comment from "./Comment";
 import Input from "./Input";
 const uuidv4 = require('uuid/v4');
+const axios = require("axios")
 
-const Comments = ({ comments }) => {
+const Comments = ({ comments, id }) => {
   const [comList, setComList] = useState([]);
   
   const addComment = valueRef => {
     const newComment = {
       user: "User name",
-      comment: valueRef,
-      id : 1 + (Math.random() * 2000),
-      newCommentArr: []
+      comment: valueRef      
     }
     setComList([...comList,newComment]);
+    axios.post(`http://localhost:3000/movies/${comments}`, comList )
   }
-
+console.log("comment",comList)
   
     
     useEffect(() => {

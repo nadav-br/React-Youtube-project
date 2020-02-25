@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./SearchVideo.scss";
-import logo from "./youtube.png";
+
 
 const SearchVideo = () => {
   const [input, setInput] = useState("");
@@ -16,7 +16,7 @@ const SearchVideo = () => {
 
   return (
     <div className="searchVideo">
-      <img className="youtubeLogo" src={logo} alt="logo" />
+      
       <input
         className="searchInput"
         type="text"
