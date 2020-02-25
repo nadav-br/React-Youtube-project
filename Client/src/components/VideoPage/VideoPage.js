@@ -17,10 +17,9 @@ const VideoPage = props => {
   //   axios.post("http://localhost:3000/movies",video)
   // },[])
   
+  console.log("likes",likeClicked);
   
-  console.log("likes",video.id)
-  
-  const empty = () => <div>HOLD</div>
+  const empty = () => <div></div>
   const full = () => {
     return(
       <div className="videoPage">
@@ -48,48 +47,64 @@ const VideoPage = props => {
   }, [props.match.params.id]);
      
 
-
   const addLike = () => {
     if (!likeClicked) {
       setVideo(prevState => ({
           ...prevState,
-          ...prevState.statistics,
-          likeCount: prevState.statistics.likeCount + 1,
+          statistics: {
+            ...prevState.statistics,
+            likeCount: prevState.statistics.likeCount + 1,
+          },
         }
       ));
       setLikeClicked(true);
-    } else {
+      
+      } else {
       setVideo(prevState => ({
         ...prevState,
-        ...prevState.statistics,
-        likeCount: prevState.statistics.likeCount - 1,
+        statistics: {
+          ...prevState.statistics,
+          likeCount: prevState.statistics.likeCount -1,
+        },
       }
     ));
     setLikeClicked(false);
-    }
     axios.post("http://localhost:3000/movies",video);
+    }
+    
   };
 
   const addUnLikes = () => {
     if (!unLikeClicked) {
       setVideo(prevState => ({
-          ...prevState,
-          unLikes: prevState.unLikes + 1,
-        }
+        ...prevState,
+        statistics: {
+          ...prevState.statistics,
+          dislikeCount: prevState.statistics.dislikeCount + 1,
+        },
+      }
       ));
       setUnLikeClicked(true);
     } else {
       setVideo(prevState => ({
         ...prevState,
-        unLikes: prevState.unLikes - 1,
+        statistics: {
+          ...prevState.statistics,
+          dislikeCount: prevState.statistics.dislikeCount - 1,
+        },
       }
     ));
     setUnLikeClicked(false);
     }
-    axios.post("http://localhost:3000/movies",video);
+    // axios.post("http://localhost:3000/movies",video);
   };
  
-  return video.id === undefined? empty(): full()
+  return (
+    <div>
+      {video.id === undefined? empty(): full()}
+      {console.log("videolikes",video)}
+    </div>
+  ) 
 }
 
 export default VideoPage;
