@@ -3,57 +3,93 @@ import SideVideoList from "./NextInLine/sideVideoList";
 import Movie from "../VideoPage/Movie/Movie";
 import "./VideoPage.scss";
 
+const axios = require("axios");
+
 const VideoPage = props => {
   const [video, setVideo] = useState({});
-  const [likes, setLikes] = useState(0);
-  const [unLikes, setUnLikes] = useState(0);
-  const [clicked, setClicked] = useState(false);
-  const [comments, setComments] = useState([]);
+  const [likeClicked, setLikeClicked] = useState(false);
+  const [unLikeClicked, setUnLikeClicked] = useState(false);
+  const [title,setTitle] = useState("")
+  // const [comments, setComments] = useState([]);
   const [views, setViews] = useState(0);
+
+  // useEffect(() => {
+  //   axios.post("http://localhost:3000/movies",video)
+  // },[])
   
-  console.log("props",props.match.params.id)
+  
+  console.log("likes",video.id)
+  
+  const empty = () => <div>HOLD</div>
+  const full = () => {
+    return(
+      <div className="videoPage">
+            <SideVideoList />
+            <Movie 
+              video={video}
+              id={video.id} 
+              title={video.snippet.title}
+              addUnLikes={addUnLikes} 
+              addLike={addLike} 
+              // comments={comments}
+            />             
+        </div>
+    )
+  }
+  
   useEffect(() => {
-  fetch(`http://localhost:3000/movies/${props.match.params.id}`)
-    .then(res => res.json())
-    .then(video => setVideo(video))
+    fetch(`http://localhost:3000/movies/${props.match.params.id}`)
+      .then(res => res.json())
+      .then(video => {
+        setVideo(video);
+        setTitle(video.snippet.title);
+        // setComments(comments)
+      })
   }, [props.match.params.id]);
      
 
+
   const addLike = () => {
-    if (!clicked) {
-      setLikes(likes + 1);
-      setClicked(true);
+    if (!likeClicked) {
+      setVideo(prevState => ({
+          ...prevState,
+          ...prevState.statistics,
+          likeCount: prevState.statistics.likeCount + 1,
+        }
+      ));
+      setLikeClicked(true);
     } else {
-      setLikes(likes - 1);
-      setClicked(false);
+      setVideo(prevState => ({
+        ...prevState,
+        ...prevState.statistics,
+        likeCount: prevState.statistics.likeCount - 1,
+      }
+    ));
+    setLikeClicked(false);
     }
+    axios.post("http://localhost:3000/movies",video);
   };
 
   const addUnLikes = () => {
-    if (!clicked) {
-      setUnLikes(unLikes + 1);
-      setClicked(true);
+    if (!unLikeClicked) {
+      setVideo(prevState => ({
+          ...prevState,
+          unLikes: prevState.unLikes + 1,
+        }
+      ));
+      setUnLikeClicked(true);
     } else {
-      setUnLikes(unLikes - 1);
-      setClicked(false);
+      setVideo(prevState => ({
+        ...prevState,
+        unLikes: prevState.unLikes - 1,
+      }
+    ));
+    setUnLikeClicked(false);
     }
-  }; 
+    axios.post("http://localhost:3000/movies",video);
+  };
  
-  return (
-        <div className="videoPage">
-            <SideVideoList />
-            <Movie 
-              id={video.id} 
-              title={video.title}
-              addUnLikes={addUnLikes} 
-              unLikes={unLikes} 
-              addLike={addLike} 
-              likes={likes} 
-              comments={comments}
-              views={views}
-            />             
-        </div>
-        )
+  return video.id === undefined? empty(): full()
 }
 
 export default VideoPage;

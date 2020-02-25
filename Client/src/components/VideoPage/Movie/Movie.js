@@ -4,7 +4,7 @@ import Comments from "../Movie/Comments/Comments";
 
 function Movie(props) {
 
-  console.log("movie",props)
+  console.log("movie",props.video)
   return (
     <div className="movie">
       <iframe
@@ -12,17 +12,17 @@ function Movie(props) {
         src={`https://www.youtube.com/embed/${props.id}`}
       />
       <h3>{props.title}</h3>
-      <h6>views {props.views}</h6>
+      <h6>views {props.video.statistics.viewCount}</h6>
       <Actions 
             addUnLikes={props.addUnLikes} 
-            unLikes={props.unLikes} 
+            unLikes={props.video.statistics.dislikeCount} 
             addLike={props.addLike} 
-            likes={props.likes} 
+            likes={props.video.statistics.likeCount} 
       />
       {/* <div>
         <p className="desc">{props.desc}</p>
       </div> */}
-      <Comments comments={props.comments} id={props.id}/>
+      {/* <Comments comments={props.comments} id={props.id}/> */}
     </div>
   );
 }
