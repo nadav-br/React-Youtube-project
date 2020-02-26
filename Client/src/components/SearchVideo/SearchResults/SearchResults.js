@@ -12,12 +12,12 @@ function SearchResults() {
     const {id} = useParams();
 
     const putVidToDB = video => {
-      axios.post(`http://localhost:3000/movies`,video);
+      axios.post(`/movies`,video);
       console.log("Svideo",video);
     }
     
     useEffect(() => {
-        fetch(`http://localhost:3000/search?q=${id}`)
+        fetch(`/search?q=${id}`)
         .then(res => res.json())
         .then(searchResults => {    
           setsearchResults(searchResults)        

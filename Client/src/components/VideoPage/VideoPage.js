@@ -37,7 +37,7 @@ const VideoPage = props => {
   }
   
   useEffect(() => {
-    fetch(`http://localhost:3000/movies/${props.match.params.id}`)
+    fetch(`/movies/${props.match.params.id}`)
       .then(res => res.json())
       .then(video => {
         setVideo(video);
@@ -69,7 +69,7 @@ const VideoPage = props => {
       }
     ));
     setLikeClicked(false);
-    axios.post("http://localhost:3000/movies",video);
+    axios.post("/movies",video);
     }
     
   };
