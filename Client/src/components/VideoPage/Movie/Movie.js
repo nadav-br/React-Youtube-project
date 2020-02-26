@@ -22,7 +22,7 @@ function Movie(props) {
       {/* <div>
         <p className="desc">{props.desc}</p>
       </div> */}
-      {/* <Comments comments={props.comments} id={props.id}/> */}
+      <Comments comments={props.comments}/>
     </div>
   );
 }

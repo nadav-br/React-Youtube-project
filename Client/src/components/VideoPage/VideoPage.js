@@ -30,7 +30,7 @@ const VideoPage = props => {
               title={video.snippet.title}
               addUnLikes={addUnLikes} 
               addLike={addLike} 
-              // comments={comments}
+              comments={video.comments}
             />             
         </div>
     )
@@ -42,7 +42,6 @@ const VideoPage = props => {
       .then(video => {
         setVideo(video);
         setTitle(video.snippet.title);
-        // setComments(comments)
       })
   }, [props.match.params.id]);
      
