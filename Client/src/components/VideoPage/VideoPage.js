@@ -9,7 +9,6 @@ const VideoPage = props => {
   const [video, setVideo] = useState({});
   const [likeClicked, setLikeClicked] = useState(false);
   const [unLikeClicked, setUnLikeClicked] = useState(false);
-  const [title,setTitle] = useState("")
   // const [comments, setComments] = useState([]);
   const [views, setViews] = useState(0);
 
@@ -41,7 +40,6 @@ const VideoPage = props => {
       .then(res => res.json())
       .then(video => {
         setVideo(video);
-        setTitle(video.snippet.title);
       })
   }, [props.match.params.id]);
      
