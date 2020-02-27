@@ -8,7 +8,7 @@ const Feed = () => {
   const [videoslist, setVideoList] = useState([])
 
   useEffect(() => {
-    fetch('/videos')
+    fetch('/movies')
       .then(res => res.json())
       .then(videoslist => {
         setVideoList(videoslist)

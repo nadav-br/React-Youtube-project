@@ -25,10 +25,10 @@ const MovieSchema = new Schema({
         commentCount: Number,
 
     },
-    likes: Number,
-    unLikes: Number,        
-    comments: Object,
-    views: Number,
+    // likes: Number,
+    // unLikes: Number,        
+    comments: Array,
+    // views: Number,
     
 })
 
