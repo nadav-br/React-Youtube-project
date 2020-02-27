@@ -1,10 +1,10 @@
-.feed{
-    width: 95%;
-    display: flex;
-    flex-direction: row;    
-    flex-wrap: wrap;
-    background: rgb(249, 249, 249);
-    margin-top: 20px;
+.feed {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: rgb(249, 249, 249);
+  margin-top: 20px;
 }
 .feedVideo {
   width: 250px;
@@ -12,7 +12,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  
 
   img {
     width: 250px;
