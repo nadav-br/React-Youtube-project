@@ -1,7 +1,12 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import "./SearchVideo.scss";
-
+import { useHistory, Link } from "react-router-dom";
+import {
+  SearchDiv,
+  SearchInput,
+  SearchButton,
+  YoutubeLogo
+} from "../../Styled Components/SearchStyles";
+import logo from "./youtube.png";
 
 const SearchVideo = () => {
   const [input, setInput] = useState("");
@@ -9,24 +14,31 @@ const SearchVideo = () => {
   const handleInput = e => {
     setInput(e.target.value);
   };
-
   const clickSearch = () => {
     history.push("/search-results/" + input);
   };
 
   return (
-    <div className="searchVideo">
-      
-      <input
-        className="searchInput"
+    <SearchDiv>
+      <Link
+        to={"/"}
+        style={{
+          width: "100px",
+          height: "35px",
+          position: "absolute",
+          marginLeft: "40%",
+          marginTop: "1px"
+        }}
+      >
+        <YoutubeLogo src={logo} alt="logo" />
+      </Link>
+      <SearchInput
         type="text"
         placeholder="חיפוש"
         onChange={e => handleInput(e)}
-      ></input>
-      <button className="searchBtn" onClick={() => clickSearch()}>
-        search
-      </button>
-    </div>
+      ></SearchInput>
+      <SearchButton onClick={() => clickSearch()}>search</SearchButton>
+    </SearchDiv>
   );
 };
 
