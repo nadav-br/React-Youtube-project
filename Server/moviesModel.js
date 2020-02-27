@@ -2,10 +2,6 @@ const  {Schema, model } = require("mongoose")
 
 
 const MovieSchema = new Schema({
-    id: {
-        type: String,
-        required: true,
-    },
     snippet: {
         title: String,
         thumbnails: {
@@ -18,6 +14,16 @@ const MovieSchema = new Schema({
         },
         description: String,
     },
+    comments: [
+        {
+        user: String,
+        comment: String,
+        }
+    ],
+    id: {
+        type: String,
+        required: true,
+    },
     statistics: {
         viewCount: Number,
         likeCount: Number,
@@ -27,7 +33,7 @@ const MovieSchema = new Schema({
     },
     // likes: Number,
     // unLikes: Number,        
-    comments: Array,
+    
     // views: Number,
     
 })

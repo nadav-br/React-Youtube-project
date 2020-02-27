@@ -5,7 +5,8 @@ import Input from "./Input";
 const uuidv4 = require('uuid/v4');
 const axios = require("axios")
 
-const Comments = ({ comments, id, movie }) => {
+const Comments = ({ comments, id, video }) => {
+  const [vid,setVid] = useState(video);
   const [comList, setComList] = useState(comments);
   
   const addComment = valueRef => {
@@ -14,14 +15,18 @@ const Comments = ({ comments, id, movie }) => {
       comment: valueRef      
     }
     setComList([...comList,newComment]);
-    axios.post(`/movies`,newComment)
-    console.log("new",comments)
+    setVid(prevState => ({
+      ...prevState,
+      comments: [...prevState.comments,newComment]
+    }));
+    
+    
   }
-
-console.log("comment",comList)
-    // useEffect(() => {
-    //   axios.post(`/movies/${comments}`, newComment )
-    // })
+  console.log("new",vid)
+  console.log("comment",comList)
+    useEffect(() => {
+      axios.put("/movies/"+id,vid);
+    },[comList])
     
     useEffect(() => {
       setComList(comments);
