@@ -4,7 +4,8 @@ import {
   SearchDiv,
   SearchInput,
   SearchButton,
-  YoutubeLogo
+  YoutubeLogo,
+  LinkStyle
 } from "../../Styled Components/SearchStyles";
 import logo from "./youtube.png";
 
@@ -20,16 +21,7 @@ const SearchVideo = () => {
 
   return (
     <SearchDiv>
-      <Link
-        to={"/"}
-        style={{
-          width: "100px",
-          height: "35px",
-          position: "absolute",
-          marginLeft: "40%",
-          marginTop: "1px"
-        }}
-      >
+      <Link to={"/"} style={{ ...LinkStyle }}>
         <YoutubeLogo src={logo} alt="logo" />
       </Link>
       <SearchInput

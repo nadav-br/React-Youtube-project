@@ -1,22 +1,18 @@
 import React from "react";
-import "./FeedVideo.scss";
 import Moment from "react-moment";
-
+import { FeedVideoStyle } from "../../../../Styled Components/FeedVideoStyle";
 
 const FeedVideo = props => {
-  
   return (
     <>
-      <ul className="feedVideo">
+      <FeedVideoStyle>
         <img src={props.snippet.thumbnails.medium.url} alt="" />
         <li>{props.snippet.title}</li>
         <li>{props.snippet.channelTitle}</li>
         <Moment fromNow>{props.snippet.publishedAt}</Moment>
-      </ul>
+      </FeedVideoStyle>
     </>
   );
 };
-
-
 
 export default FeedVideo;
