@@ -1,6 +1,9 @@
-import React from "react";
+import React,{useState} from "react";
 
 const Actions = (props) => {  
+
+  const [likes, setLikes] = useState(props.likes)
+
   return (
     <div>
       <button onClick={props.addLike} >Likes {props.likes} </button>
