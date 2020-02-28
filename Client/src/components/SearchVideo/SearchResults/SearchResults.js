@@ -12,8 +12,7 @@ function SearchResults() {
     const {id} = useParams();
 
     const putVidToDB = video => {
-      axios.post(`/movies`,video);
-      console.log("Svideo",video);
+      axios.post(`/movies`,video);      
     }
     
     useEffect(() => {
