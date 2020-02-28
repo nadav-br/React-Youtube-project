@@ -1,17 +1,13 @@
 import React from "react";
 import Feed from "./Feed/Feed";
+import { HomeDiv } from "../../Styled Components/HomePageStyle";
 
-
-
-const HomePage = () => { 
- 
-    return (
-      <div className='homePage'>      
-        <Feed />
-       
-      </div>
-    );
-  
-}
+const HomePage = () => {
+  return (
+    <HomeDiv>
+      <Feed />
+    </HomeDiv>
+  );
+};
 
 export default HomePage;

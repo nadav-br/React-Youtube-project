@@ -10,6 +10,14 @@ export const SearchDiv = styled.div`
   height: 3rem;
 `;
 
+export const LinkStyle = {
+  width: "100px",
+  height: "35px",
+  position: "absolute",
+  marginLeft: "40%",
+  marginTop: "1px"
+};
+
 export const YoutubeLogo = styled.img`
   width: 100%;
   height: 100%;

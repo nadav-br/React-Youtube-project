@@ -30,6 +30,7 @@ const VideoPage = props => {
               addUnLikes={addUnLikes} 
               addLike={addLike} 
               comments={video.comments}
+              addComment={addComment}
             />             
         </div>
     )
@@ -42,7 +43,22 @@ const VideoPage = props => {
         setVideo(video);
       })
   }, [props.match.params.id]);
+
+  useEffect(() => {
+    axios.put("/movies/"+video.id,video);
+  },[video])
      
+
+  const addComment = valueRef => {
+    const newComment = {
+      user: "User name",
+      comment: valueRef      
+    }
+    setVideo(prevState => ({
+      ...prevState,
+      comments: [...prevState.comments,newComment]
+    }));
+  }
 
   const addLike = () => {
     if (!likeClicked) {
