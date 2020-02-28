@@ -54,19 +54,21 @@ app.get('/videos', async (req, res) => {
 app.get('/search', async (req, res) => {   
     const data = await searchVideos(req.query.q);
     data.map(value => {
-        value.views = 0;
-        value.likes = 3;
-        value.unLikes = 2;
-        value.comments = [];
-        value.id = value.id.videoId;
-    });  
+        value.statistics={
+            viewCount:0,
+            likeCount:0,
+            dislikeCount:0,
+            commentCount:0
+        },
+        value.comments = [],
+        value.id = value.id.videoId
+    }); 
     console.log("serv-search",data)
     // data.forEach(movie => {
     //     const result = new MoviesModel(movie);
     //     result.save();
     // })                  
     res.json(data);
-    // res.send(result);    
 })
 
 const searchVideos = async (value) => {

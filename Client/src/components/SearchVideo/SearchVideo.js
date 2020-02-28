@@ -24,12 +24,14 @@ const SearchVideo = () => {
       <Link to={"/"} style={{ ...LinkStyle }}>
         <YoutubeLogo src={logo} alt="logo" />
       </Link>
-      <SearchInput
-        type="text"
-        placeholder="חיפוש"
-        onChange={e => handleInput(e)}
-      ></SearchInput>
-      <SearchButton onClick={() => clickSearch()}>search</SearchButton>
+      <form onSubmit={() => clickSearch()}>
+        <SearchInput
+          type="text"
+          placeholder="חיפוש"
+          onChange={e => handleInput(e)}
+        ></SearchInput>
+        <SearchButton onClick={() => clickSearch()}>search</SearchButton>
+      </form>
     </SearchDiv>
   );
 };
