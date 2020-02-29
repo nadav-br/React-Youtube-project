@@ -5,17 +5,12 @@ import {
   SearchInput,
   SearchButton,
   Block,
+  SearchForm,
 } from "../../Styled Components/SearchStyles";
 import logo from "./youtube.png";
 import {ReactComponent as Youtube} from "../../../src/assets/YouTube_Logo.svg";
 import {ReactComponent as SearchIcon} from "../../../src/assets/search.svg";
 import styled from "styled-components";
-
-const YouTube = styled(Youtube)`
-width:15vh`;
-const Icon = styled(SearchIcon)`
-width:20px`;
-
 
 const SearchVideo = () => {
   const [input, setInput] = useState("");
@@ -30,19 +25,27 @@ const SearchVideo = () => {
   return (
     <SearchDiv>
       <Block></Block>
-      <form onSubmit={() => clickSearch()}>
-          <SearchButton onClick={() => clickSearch()}>Icon/></SearchButton>
+      <SearchForm onSubmit={() => clickSearch()}>
+          <SearchButton onClick={() => clickSearch()}><Icon/></SearchButton>
           <SearchInput
             type="text"
             placeholder="חיפוש"
             onChange={e => handleInput(e)}
           ></SearchInput>
-      </form>
-      <a href={"http://localhost:3000/"}>
+      </SearchForm>
+      <a href={"/"}>
       <YouTube />
       </a>
     </SearchDiv>
   );
 };
+
+const YouTube = styled(Youtube)`
+width:15vh`;
+const Icon = styled(SearchIcon)`
+width:15px;
+height:15px;
+margin-top:4px;
+fill:#666666;`
 
 export default SearchVideo;
