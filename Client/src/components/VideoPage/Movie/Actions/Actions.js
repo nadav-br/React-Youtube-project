@@ -4,17 +4,17 @@ import {ReactComponent as DisLikeImg} from './dislike.svg';
 
 import {  
   LikesBtns,
-  Container
+  ContainerBtn
 } from "../../../../Styled Components/VideoPageStyle";
 const Actions = (props) => {  
 
   const [likes, setLikes] = useState(props.likes)
 
   return (
-    <Container>
+    <ContainerBtn>
       <LikesBtns onClick={props.addLike} > {props.likes} <LikeIMg /></LikesBtns>
       <LikesBtns onClick={props.addUnLikes} >{props.unLikes} <DisLikeImg/></LikesBtns>
-    </Container>
+    </ContainerBtn>
   );  
 }
 

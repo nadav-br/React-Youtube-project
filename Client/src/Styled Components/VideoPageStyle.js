@@ -1,6 +1,24 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+
+export const MainContainer = styled.div`
+    background: rgb(249, 249, 249);
+    display: flex;
+    justify-content: flex-start;
+    width: 102%;
+    
+`;
+
+export const MovieFrame = styled.iframe`
+    
+
+    & iframe {
+        margin: 20px;
+    }
+    
+`;
+
+export const ContainerBtn = styled.div`
     display: flex;
     flex-direction: row;
     

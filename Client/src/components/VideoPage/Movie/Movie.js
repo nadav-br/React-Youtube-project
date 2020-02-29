@@ -2,7 +2,7 @@ import React from "react";
 import Actions from "./Actions/Actions"
 import Comments from "../Movie/Comments/Comments";
 import {  
-  
+  MovieFrame    
 } from "../../../Styled Components/VideoPageStyle";
 
 function Movie(props) {
