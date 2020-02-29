@@ -7,7 +7,6 @@ import {
   Block,
   SearchForm,
 } from "../../Styled Components/SearchStyles";
-import logo from "./youtube.png";
 import {ReactComponent as Youtube} from "../../../src/assets/YouTube_Logo.svg";
 import {ReactComponent as SearchIcon} from "../../../src/assets/search.svg";
 import styled from "styled-components";
