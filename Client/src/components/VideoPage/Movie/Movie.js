@@ -9,7 +9,7 @@ function Movie(props) {
 
   console.log("movie",props.video)
   return (
-    <div className="movie">
+    <MovieFrame className="movie">
       <iframe
         className="player"
         src={`https://www.youtube.com/embed/${props.id}`}
@@ -25,9 +25,9 @@ function Movie(props) {
       {/* <div>
         <p className="desc">{props.desc}</p>
       </div> */}
-      <h4>comments {props.video.statistics.commentCount}</h4>
+      <h5>comments {props.video.statistics.commentCount}</h5>
       <Comments comments={props.comments} id={props.id} video={props.video} addComment={props.addComment}/>
-    </div>
+    </MovieFrame>
   );
 }
 

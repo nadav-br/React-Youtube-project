@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SideVideoList from "./NextInLine/sideVideoList";
 import Movie from "../VideoPage/Movie/Movie";
-import "./VideoPage.scss";
 import {  
   MainContainer  
 } from "../../Styled Components/VideoPageStyle";
