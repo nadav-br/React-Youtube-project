@@ -11,7 +11,11 @@ const FeedVideo = props => {
         <img src={props.snippet.thumbnails.medium.url} alt="" />
         <li>{props.snippet.title}</li>
         <li>{props.snippet.channelTitle}</li>
+        <div>
+          {props.statistics.viewCount} views - 
         <Moment fromNow>{props.snippet.publishedAt}</Moment>
+        </div>
+        
       </ul>
     </>
   );

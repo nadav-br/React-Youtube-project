@@ -9,14 +9,7 @@ const VideoPage = props => {
   const [video, setVideo] = useState({});
   const [likeClicked, setLikeClicked] = useState(false);
   const [unLikeClicked, setUnLikeClicked] = useState(false);
-  // const [comments, setComments] = useState([]);
   const [views, setViews] = useState(0);
-
-  // useEffect(() => {
-  //   axios.post("http://localhost:3000/movies",video)
-  // },[])
-  
-  console.log("likes",likeClicked);
   
   const empty = () => <div></div>
   const full = () => {
@@ -41,6 +34,7 @@ const VideoPage = props => {
       .then(res => res.json())
       .then(video => {
         setVideo(video);
+        
       })
   }, [props.match.params.id]);
 
@@ -82,7 +76,6 @@ const VideoPage = props => {
       }
     ));
     setLikeClicked(false);
-    axios.post("/movies",video);
     }
     
   };
@@ -109,7 +102,6 @@ const VideoPage = props => {
     ));
     setUnLikeClicked(false);
     }
-    // axios.post("http://localhost:3000/movies",video);
   };
  
   return (
