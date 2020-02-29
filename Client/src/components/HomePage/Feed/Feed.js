@@ -1,32 +1,36 @@
 import React, { useState, useEffect } from "react";
 import FeedVideo from "./FeedVideo/FeedVideo";
 import { Link } from "react-router-dom";
-const uuidv4 = require('uuid/v4');
+import { FeedStyle } from "../../../Styled Components/HomePageStyle";
+import { LinkVideoStyle } from "../../../Styled Components/FeedVideoStyle";
 
-const Feed = () => {  
+const uuidv4 = require("uuid/v4");
 
-  const [videoslist, setVideoList] = useState([])
+const Feed = () => {
+  const [videoslist, setVideoList] = useState([]);
 
   useEffect(() => {
-    fetch('/movies')
+    fetch("/movies")
       .then(res => res.json())
-      .then(videoslist => {
-        setVideoList(videoslist)
-    })  
-  },[])
-    return (
-      <div className="feed">         
-          {videoslist.map(video => {
-              return (
-                <Link key={uuidv4()} to={`/video-page/${video.id}`}>
-                  <FeedVideo  {...video} />
-               </Link>
-              );
-            })
-          }
-      </div>
-    );
-  
-}
+      .then(videos => {
+        setVideoList(videos);
+      });
+  }, []);
+  return (
+    <FeedStyle>
+      {videoslist.map(video => {
+        return (
+          <Link
+            key={uuidv4()}
+            to={`/video-page/${video.id}`}
+            style={{ ...LinkVideoStyle }}
+          >
+            <FeedVideo {...video} />
+          </Link>
+        );
+      })}
+    </FeedStyle>
+  );
+};
 
 export default Feed;

@@ -1,6 +1,9 @@
 import React from "react";
 import Actions from "./Actions/Actions"
 import Comments from "../Movie/Comments/Comments";
+import {  
+  
+} from "../../../Styled Components/VideoPageStyle";
 
 function Movie(props) {
 
@@ -12,7 +15,7 @@ function Movie(props) {
         src={`https://www.youtube.com/embed/${props.id}`}
       />
       <h3>{props.title}</h3>
-      <h6>views {props.video.statistics.viewCount}</h6>
+      <h4>views {props.video.statistics.viewCount}</h4>
       <Actions 
             addUnLikes={props.addUnLikes} 
             unLikes={props.video.statistics.dislikeCount} 
@@ -22,6 +25,7 @@ function Movie(props) {
       {/* <div>
         <p className="desc">{props.desc}</p>
       </div> */}
+      <h4>comments {props.video.statistics.commentCount}</h4>
       <Comments comments={props.comments} id={props.id} video={props.video} addComment={props.addComment}/>
     </div>
   );

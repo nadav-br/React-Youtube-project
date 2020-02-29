@@ -42,6 +42,14 @@ router.post("/", async (req, res) => {
     res.send(result)
 })
 
+router.patch('/:id', async (req, res) =>{
+    const updateObject = req.body; // {last_name : "smith", age: 44}
+    const id = req.params.id;
+    const result = await youtube.movies.update({_id  : ObjectId(id)}, {$set: updateObject});
+    console.log(id)
+    res.send(result)
+    
+})
 
 
 

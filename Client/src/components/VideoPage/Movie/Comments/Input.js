@@ -1,4 +1,8 @@
-import React,{useState} from 'react'
+import React,{useState} from 'react';
+import {  
+    CommentInput
+  } from "../../../../Styled Components/VideoPageStyle";
+
 
 function Input(props) {
     let valueRef = React.createRef();
@@ -15,9 +19,9 @@ function Input(props) {
     return (
 
             <form onSubmit={getInput}>         
-                <input type="text" ref={valueRef} />
+                <CommentInput type="text" cols="40" placeholder=" הוסף הערה ציבורית" ref={valueRef} />
             </form>
     )
 }
 
-export default Input
+export default Input;

@@ -1,14 +1,20 @@
 import React,{useState} from "react";
+import {ReactComponent as LikeIMg} from './like.svg';
+import {ReactComponent as DisLikeImg} from './dislike.svg';
 
+import {  
+  LikesBtns,
+  Container
+} from "../../../../Styled Components/VideoPageStyle";
 const Actions = (props) => {  
 
   const [likes, setLikes] = useState(props.likes)
 
   return (
-    <div>
-      <button onClick={props.addLike} >Likes {props.likes} </button>
-      <button onClick={props.addUnLikes} >unLikes {props.unLikes} </button>
-    </div>
+    <Container>
+      <LikesBtns onClick={props.addLike} > {props.likes} <LikeIMg /></LikesBtns>
+      <LikesBtns onClick={props.addUnLikes} >{props.unLikes} <DisLikeImg/></LikesBtns>
+    </Container>
   );  
 }
 
