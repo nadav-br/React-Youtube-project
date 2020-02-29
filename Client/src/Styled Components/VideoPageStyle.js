@@ -1,18 +1,28 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+    
+`;
 export const LikesBtns = styled.button`
-  width: 60%;
-  height: 60%;
-  background-color: Transparent;
-  border: none;
-  cursor:pointer;
-  overflow: hidden; 
-  background-repeat:no-repeat;  
-  font-weight: bold;
-  
-  &:focus {
-    color: blue
+    width: 60%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;    
+    background-color: Transparent;
+    border: none;
+    cursor:pointer;
+    overflow: hidden; 
+    background-repeat:no-repeat;  
+    font-weight: bold;
+    vertical-align: middle;
+    background-position: 50%, 50%;
+    &:focus {
+    color: rgb(6, 95, 212);
   }`;
+
+  
 
 export const CommentInput = styled.input`
  margin-top: 20px;
