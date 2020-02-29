@@ -21,11 +21,14 @@ export const MovieFrame = styled.iframe`
 export const ContainerBtn = styled.div`
     display: flex;
     flex-direction: row;
+    margin-right: 40%;
+    
     
 `;
 export const LikesBtns = styled.button`
-    width: 60%;
-    height: 80%;
+    width: 80px;
+    height: 30px;
+    padding-top: 8px;
     display: flex;
     flex-direction: row;    
     background-color: Transparent;

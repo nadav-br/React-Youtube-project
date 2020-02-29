@@ -8,7 +8,7 @@ const uuidv4 = require("uuid/v4");
 
 const Feed = () => {
   const [videoslist, setVideoList] = useState([]);
-
+  console.log(videoslist) 
   useEffect(() => {
     fetch("/movies")
       .then(res => res.json())
