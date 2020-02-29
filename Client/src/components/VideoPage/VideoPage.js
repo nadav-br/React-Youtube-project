@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import SideVideoList from "./NextInLine/sideVideoList";
 import Movie from "../VideoPage/Movie/Movie";
 import "./VideoPage.scss";
+import {  
+  MainContainer  
+} from "../../Styled Components/VideoPageStyle";
 
 const axios = require("axios");
 
@@ -14,7 +17,7 @@ const VideoPage = props => {
   const empty = () => <div></div>
   const full = () => {
     return(
-      <div className="videoPage">
+      <MainContainer className="videoPage">
             <SideVideoList />
             <Movie 
               video={video}
@@ -25,7 +28,7 @@ const VideoPage = props => {
               comments={video.comments}
               addComment={addComment}
             />             
-        </div>
+        </MainContainer>
     )
   }
   
