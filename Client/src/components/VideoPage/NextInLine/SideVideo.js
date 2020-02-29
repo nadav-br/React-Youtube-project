@@ -1,13 +1,21 @@
 import React from "react";
-import "./SideVideo.scss";
+import {SideVideoBox,
+        SideVideoTitle,
+        SideVideoImg,
+        SideVideoviews,
+        DescriptionBox,
+      } from "../../../Styled Components/SideVideoStyle.js";
 
 const SideVideo = (props) => {
   
     return(
-    <div className="SideVideo">
-      <p>{props.snippet.title}</p>
-      <img src={props.snippet.thumbnails.default.url} alt="" />
-    </div>
+    <SideVideoBox className="SideVideo">
+      <DescriptionBox>
+        <SideVideoTitle>{props.snippet.title}</SideVideoTitle>
+        <SideVideoviews>{props.statistics.viewCount} <span> - צפיות</span> </SideVideoviews>
+      </DescriptionBox>
+      <SideVideoImg src={props.snippet.thumbnails.medium.url} alt="" />
+    </SideVideoBox>
     )
 }
 
