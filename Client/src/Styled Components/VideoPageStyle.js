@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const MainContainer = styled.div`
     background: rgb(249, 249, 249);
     display: flex;
@@ -25,41 +24,40 @@ export const MovieFrame = styled.div`
             
     }
 
-    & h4 {        
-        padding: 0px;
-        margin: 0px;  
-    }
+    padding: 0px;
+  }
+
+  & h4 {
+    padding: 0px;
+    margin: 0px;
+  }
 `;
 
 export const ContainerBtn = styled.div`
-    
-    display: flex;
-    flex-direction: row;
-    margin-right: 30%; 
-    padding: 0px;
-    
-    
+  display: flex;
+  flex-direction: row;
+  margin-right: 30%;
+  padding: 0px;
 `;
 
 export const LikesBtns = styled.button`
-    width: 80px;
-    height: 30px;
-    padding-top: 8px;
-    display: flex;
-    flex-direction: row;    
-    background-color: Transparent;
-    border: none;
-    cursor:pointer;
-    overflow: hidden; 
-    background-repeat:no-repeat;  
-    font-weight: bold;
-    vertical-align: middle;
-    background-position: 50%, 50%;
-    &:focus {
+  width: 80px;
+  height: 30px;
+  padding-top: 8px;
+  display: flex;
+  flex-direction: row;
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  font-weight: bold;
+  vertical-align: middle;
+  background-position: 50%, 50%;
+  &:focus {
     color: rgb(6, 95, 212);
-  }`;
-
-  
+  }
+`;
 
 export const CommentInput = styled.input`
  width: 58.3vw;

@@ -8,29 +8,29 @@ margin-left: 33px;
 `;
 
 export const SideVideoviews = styled.p`
-margin:0;
-padding:0;
-margin: 7px 7px 0 0 ;
-font-size: 12px;
+  margin: 0;
+  padding: 0;
+  margin: 7px 7px 0 0;
+  font-size: 12px;
 `;
 
 export const DescriptionBox = styled.div`
-width: 350px;
-height: 90px;
-display: flex;
-flex-direction:column;
-align-items:flex-end;
+  width: 350px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 `;
 
 export const SideVideoTitle = styled.p`
-text-align: right;
-margin: 0;
-padding:0;
-margin-right: 7px;
-font-size: 14px;
-list-style: none;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  margin-right: 7px;
+  font-size: 14px;
+  list-style: none;
 `;
 export const SideVideoImg = styled.img`
-width:302.11pxpx;
-height: 120px;
+  min-width: 168px;
+  min-height: 94px;
 `;
