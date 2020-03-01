@@ -11,9 +11,9 @@ function SearchResults() {
     const [searchResults, setsearchResults] = useState([]);
     const {id} = useParams();
 
-    const putVidToDB = video => {
-      axios.post(`/movies`,video);      
-    }
+//     const putVidToDB = video => {
+//       axios.post(`/movies`,video);      
+//     }
     
     useEffect(() => {
         fetch(`/search?q=${id}`)
