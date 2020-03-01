@@ -29,13 +29,8 @@ const SideVideoList = () => {
 };
 
 const VideoLink = styled(Link)`
-<<<<<<< HEAD
     text-decoration: none;
     color:black;
-=======
-  text-decoration: none;
-  color: black;
->>>>>>> 3f8f11ac1eddec65ff892bb0e609b7535831f67d
 `;
 
 export default SideVideoList;

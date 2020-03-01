@@ -31,6 +31,6 @@ export const SideVideoTitle = styled.p`
   list-style: none;
 `;
 export const SideVideoImg = styled.img`
-  min-width: 168px;
-  min-height: 94px;
+width:302.11pxpx;
+height: 120px;
 `;
