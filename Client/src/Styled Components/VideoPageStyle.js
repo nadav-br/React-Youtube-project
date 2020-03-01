@@ -4,27 +4,24 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
     background: rgb(249, 249, 249);
     display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    margin: 20px;    
+    justify-content: space-between;
 `;
 
 export const MovieFrame = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;  
-    margin-top: 30px;
-    margin-right: 100px;
+    margin-top: 15px;
+    margin-right: 33px;
     & iframe {
-        width:700px;
-        height:400px;
-        margin-left:50px;
+        width:62vw;
+        height:65vh;
     }
 
     & h3 {
         width:700px;   
-        
         padding: 0px;
+        margin:0;
             
     }
 
@@ -65,19 +62,24 @@ export const LikesBtns = styled.button`
   
 
 export const CommentInput = styled.input`
- margin-top: 20px;
- width: 40vw;
+ width: 58.3vw;
+ padding-bottom:5px;
  border: 0;
-  outline: 0;
-  background: transparent;
-  border-bottom: 1px solid black;
-  direction:RTL;
+ outline: 0;
+ background: transparent;
+ border-bottom: 1px solid black;
+ direction:RTL;
   
 `;
 
-export const Comments = styled.div`
- margin-top: 20px;
- width: 40vw;
- direction:RTL;
- 
+export const InputContainer = styled.form`
+ display:flex;
+ justify-content:flex-start;
+ align-items:flex-end;
+ margin-bottom:5vh;
 `;
+
+export const CommentsCount = styled.span`
+ margin-bottom:5vh;
+`;
+

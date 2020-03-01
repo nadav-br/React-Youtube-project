@@ -32,7 +32,7 @@ const SideVideoList = () => {
 
 const VideoLink = styled(Link)`
     text-decoration: none;
-    color:black
+    color:black;
 `;
 
 export default SideVideoList

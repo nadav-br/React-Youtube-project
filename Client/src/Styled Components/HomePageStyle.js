@@ -14,5 +14,5 @@ export const FeedStyle = styled.div`
   justify-content: space-evenly;
   flex-wrap: wrap;
   background: rgb(249, 249, 249);
-  margin-top: 20px;
+  margin-top: 0px;
 `;

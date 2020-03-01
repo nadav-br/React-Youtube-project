@@ -4,6 +4,7 @@ export const SideVideoBox = styled.div`
 width: 350px;
 height: 140px;
 display: flex;
+margin-left: 33px;
 `;
 
 export const SideVideoviews = styled.p`

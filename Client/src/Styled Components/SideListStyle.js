@@ -5,4 +5,5 @@ export const SideListStyle = styled.div`
     display: flex;
     flex-direction:column;
     align-items:flex-end;
+    margin-top: 15px;
 `;

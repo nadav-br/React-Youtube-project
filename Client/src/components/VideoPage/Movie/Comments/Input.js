@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
-import {  
-    CommentInput
-  } from "../../../../Styled Components/VideoPageStyle";
+import styled from "styled-components";
+import {ReactComponent as Icon} from "../../../../assets/clerk.svg"
+import {CommentInput, InputContainer} from "../../../../Styled Components/VideoPageStyle";
 
 
 function Input(props) {
@@ -17,11 +17,16 @@ function Input(props) {
     
     
     return (
-
-            <form onSubmit={getInput}>         
-                <CommentInput type="text" cols="40" placeholder=" הוסף הערה ציבורית" ref={valueRef} />
-            </form>
+        <InputContainer onSubmit={getInput}> 
+            <CommentInput type="text" cols="40" placeholder=" הוסף הערה ציבורית" ref={valueRef} />
+            <UserIcon />
+        </InputContainer>
     )
 }
+
+const UserIcon = styled(Icon)`
+width: 5.5vh;
+margin-left: 15px;
+`;
 
 export default Input;

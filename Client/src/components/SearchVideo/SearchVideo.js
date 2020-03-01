@@ -9,6 +9,7 @@ import {
 } from "../../Styled Components/SearchStyles";
 import {ReactComponent as Youtube} from "../../../src/assets/YouTube_Logo.svg";
 import {ReactComponent as SearchIcon} from "../../../src/assets/search.svg";
+import {ReactComponent as User} from "../../../src/assets/clerk.svg";
 import styled from "styled-components";
 
 const SearchVideo = () => {
@@ -23,7 +24,7 @@ const SearchVideo = () => {
 
   return (
     <SearchDiv>
-      <Block></Block>
+      <Block><UserIcon /></Block>
       <SearchForm onSubmit={() => clickSearch()}>
           <SearchButton onClick={() => clickSearch()}><Icon/></SearchButton>
           <SearchInput
@@ -39,12 +40,21 @@ const SearchVideo = () => {
   );
 };
 
+const UserIcon = styled(User)`
+width: 6vh;
+padding 0 33px;
+`;
+
 const YouTube = styled(Youtube)`
-width:15vh`;
+width:15vh;
+padding 0 33px;
+`;
+
 const Icon = styled(SearchIcon)`
 width:15px;
 height:15px;
 margin-top:4px;
-fill:#666666;`
+fill:#666666;
+`;
 
 export default SearchVideo;

@@ -39,17 +39,10 @@ const Comments = ({ comments, id, video, addComment }) => {
   comList.reverse();
 
   return (
-    <div>
+    <>
       <Input addComment={addComment} />
-      {comments.map(post => {
-        return (
-          <div key={uuidv4()}>
-            <Comment comment={post} />
-      {console.log("comments",comments)}
-          </div>
-        );
-      })}
-    </div>
+      {comments.map(post => <Comment key={uuidv4()} comment={post} />)}
+    </>
   );
 };
 

@@ -1,9 +1,7 @@
 import React from "react";
 import Actions from "./Actions/Actions"
 import Comments from "../Movie/Comments/Comments";
-import {  
-  MovieFrame    
-} from "../../../Styled Components/VideoPageStyle";
+import {MovieFrame, CommentsCount} from "../../../Styled Components/VideoPageStyle";
 
 function Movie(props) {
 
@@ -25,7 +23,7 @@ function Movie(props) {
       {/* <div>
         <p className="desc">{props.desc}</p>
       </div> */}
-      <h5>comments {props.video.statistics.commentCount}</h5>
+      <CommentsCount>תגובות {props.video.statistics.commentCount}</CommentsCount>
       <Comments comments={props.comments} id={props.id} video={props.video} addComment={props.addComment}/>
     </MovieFrame>
   );
