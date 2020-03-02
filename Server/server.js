@@ -1,8 +1,8 @@
 const express = require("express");
+const qs = require("qs");
 const app = express();
 const rp = require("request-promise");
-const qs = require("querystring");
-const KEY = "AIzaSyCiWZ6dmHKrOEnTRVX_MM9nBhhbWPv28bw";
+const KEY = "AIzaSyASy8NF_YlZSyqK5KP6oJ6UDSTdO3EkOYA"; //"AIzaSyCiWZ6dmHKrOEnTRVX_MM9nBhhbWPv28bw";
 const {getDB} = require("./db");
 const moviesRoute = require("./movies");
 const path = require('path');
@@ -59,8 +59,7 @@ app.get('/videos', async (req, res) => {
 } 
 
 app.get('/search', async (req, res) => {  
-    try {
-        const data = await searchVideos(req.query.q)
+    data = await searchVideos(req.query.q)
             data.map(value => {
             value.statistics={
             viewCount:0,
@@ -70,14 +69,12 @@ app.get('/search', async (req, res) => {
             },
         value.comments = [],
         value.id = value.id.videoId
-        })
-    } catch(err) {       
-        throw new Error(err);
-    }                 
+        });
     res.json(data);
 })
 
 const searchVideos = async (value) => {
+    try {
     let searchQuery = qs.stringify({
         part: 'snippet',
         key: KEY,
@@ -92,8 +89,8 @@ const searchVideos = async (value) => {
         json: true // const data = await data.JSON();
     }
 
-    try {
-        const respone = await rp(options);    
+    
+        const respone = await rp(options).catch(e => console.error(e)); 
         return respone.body.items
     } catch(err) {       
         throw new Error(err);

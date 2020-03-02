@@ -13,11 +13,15 @@ import {ReactComponent as User} from "../../../src/assets/clerk.svg";
 import styled from "styled-components";
 
 const SearchVideo = () => {
-  const [input, setInput] = useState("");
+
   let history = useHistory();
+
+  const [input, setInput] = useState("");  
+  
   const handleInput = e => {
     setInput(e.target.value);
   };
+
   const clickSearch = () => {
     history.push("/search-results/" + input);
   };

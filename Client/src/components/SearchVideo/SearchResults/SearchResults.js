@@ -20,8 +20,8 @@ function SearchResults() {
         .then(res => res.json())
         .then(searchResults => {    
           setsearchResults(searchResults)        
-        }).catch(e => {throw new Error(e)})
-    },[id])   
+        });
+    },[id]);
     
     
     return (

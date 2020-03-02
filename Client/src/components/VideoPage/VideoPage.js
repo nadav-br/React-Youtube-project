@@ -3,14 +3,12 @@ import SideVideoList from "./NextInLine/sideVideoList";
 import Movie from "../VideoPage/Movie/Movie";
 import { MainContainer } from "../../Styled Components/VideoPageStyle";
 import { HomeDiv } from "../../Styled Components/HomePageStyle";
-
 const axios = require("axios");
 
 const VideoPage = props => {
   const [video, setVideo] = useState({});
   const [likeClicked, setLikeClicked] = useState(false);
   const [unLikeClicked, setUnLikeClicked] = useState(false);
-  const [views, setViews] = useState(0);
 
   const empty = () => <div></div>;
   const full = () => {
