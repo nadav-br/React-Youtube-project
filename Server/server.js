@@ -7,6 +7,7 @@ const {getDB} = require("./db");
 const moviesRoute = require("./movies");
 const path = require('path');
 const { MoviesModel } = require('./moviesModel')
+
 app.use(express.json())
 app.use('/movies', moviesRoute);
 getDB()
@@ -17,17 +18,21 @@ app.use('/', express.static(path.join(__dirname, '../Client/build')));
 // 3. env vars: a> DB_URL , b> PORT
 
 app.get('/videos', async (req, res) => {   
+    try {
         const data = await requestVideos();
-        data.map(item => ({
+            data.map(item => ({
             ...item,
             comments: [],
-        }))       
+            }))       
                
-        data.forEach(movie => {
+            data.forEach(movie => {
             const result = new MoviesModel(movie);
             result.save();
-        })                  
-        res.json(data)
+            })
+    } catch(err) {        
+        throw new Error(err);
+    }                          
+        // res.json(data)
         res.send(result);
 })
 
@@ -45,29 +50,30 @@ app.get('/videos', async (req, res) => {
          resolveWithFullResponse: true, //request-promise returns just the response body from a request. To get the full response object use reswuthall
          json: true // const data = await data.JSON();
     }
-
-     const respone = await rp(options);
-     //console.log(respone)
-     return respone.body.items
+    try {
+     const respone = await rp(options);     
+     return respone.body.items;
+    } catch(err) {       
+        throw new Error(err);
+    } 
 } 
 
-app.get('/search', async (req, res) => {   
-    const data = await searchVideos(req.query.q);
-    data.map(value => {
-        value.statistics={
+app.get('/search', async (req, res) => {  
+    try {
+        const data = await searchVideos(req.query.q)
+            data.map(value => {
+            value.statistics={
             viewCount:0,
             likeCount:0,
             dislikeCount:0,
             commentCount:0
-        },
+            },
         value.comments = [],
         value.id = value.id.videoId
-    }); 
-    console.log("serv-search",data)
-    // data.forEach(movie => {
-    //     const result = new MoviesModel(movie);
-    //     result.save();
-    // })                  
+        })
+    } catch(err) {       
+        throw new Error(err);
+    }                 
     res.json(data);
 })
 
@@ -85,10 +91,14 @@ const searchVideos = async (value) => {
         resolveWithFullResponse: true, 
         json: true // const data = await data.JSON();
     }
-    const respone = await rp(options);
-    // console.log(respone.body.items[0])
-     return respone.body.items
-}
 
+    try {
+        const respone = await rp(options);    
+        return respone.body.items
+    } catch(err) {       
+        throw new Error(err);
+    }   
+    
+}
 
 app.listen(process.env.PORT || 5000);

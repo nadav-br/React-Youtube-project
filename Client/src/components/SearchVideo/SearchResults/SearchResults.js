@@ -20,9 +20,10 @@ function SearchResults() {
         .then(res => res.json())
         .then(searchResults => {    
           setsearchResults(searchResults)        
-        })
+        }).catch(e => {throw new Error(e)})
     },[id])   
-    console.log("SEARCH",searchResults)
+    
+    
     return (
         <div className="searchResults">         
           {searchResults.map(video => {     

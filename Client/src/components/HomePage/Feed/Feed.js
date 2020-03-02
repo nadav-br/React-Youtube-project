@@ -8,14 +8,15 @@ const uuidv4 = require("uuid/v4");
 
 const Feed = () => {
   const [videoslist, setVideoList] = useState([]);
-  console.log(videoslist) 
+  
   useEffect(() => {
     fetch("/movies")
       .then(res => res.json())
       .then(videos => {
         setVideoList(videos);
-      });
+      }).catch(e => {throw new Error(e)})
   }, []);
+
   return (
     <FeedStyle>
       {videoslist.map(video => {
