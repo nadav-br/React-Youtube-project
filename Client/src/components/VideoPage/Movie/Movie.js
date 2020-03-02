@@ -11,9 +11,9 @@ function Movie(props) {
         className="player"
         src={`https://www.youtube.com/embed/${props.id}`}
       />
-      <h3>{props.title}</h3>
-      <h4>views {props.video.statistics.viewCount}</h4>
+      <h4>{props.title}</h4>
       <Actions
+        viewCount={props.video.statistics.viewCount}
         addUnLikes={props.addUnLikes}
         unLikes={props.video.statistics.dislikeCount}
         addLike={props.addLike}

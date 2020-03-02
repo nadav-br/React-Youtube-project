@@ -4,7 +4,9 @@ import {ReactComponent as DisLikeImg} from './dislike.svg';
 import styled from "styled-components";
 import {  
   LikesBtns,
-  ContainerBtn
+  ContainerBtn,
+  Views,
+  Block
 } from "../../../../Styled Components/VideoPageStyle";
 const Actions = (props) => {  
 
@@ -14,6 +16,8 @@ const Actions = (props) => {
     <ContainerBtn>
       <LikesBtns onClick={props.addLike} > {props.likes} <Like /></LikesBtns>
       <LikesBtns onClick={props.addUnLikes} >{props.unLikes} <DisLike/></LikesBtns>
+      <Block></Block>
+      <Views>צפיות {props.viewCount}</Views>
     </ContainerBtn>
   );  
 }

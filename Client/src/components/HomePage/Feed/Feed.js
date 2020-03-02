@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import FeedVideo from "./FeedVideo/FeedVideo";
 import { Link } from "react-router-dom";
 import { FeedStyle } from "../../../Styled Components/HomePageStyle";
-import { LinkVideoStyle } from "../../../Styled Components/FeedVideoStyle";
+import styled from "styled-components";
 
 const uuidv4 = require("uuid/v4");
 
@@ -20,17 +20,21 @@ const Feed = () => {
     <FeedStyle>
       {videoslist.map(video => {
         return (
-          <Link
+          <FeedVideoStyle
             key={uuidv4()}
             to={`/video-page/${video.id}`}
-            style={{ ...LinkVideoStyle }}
           >
             <FeedVideo {...video} />
-          </Link>
+          </FeedVideoStyle>
         );
       })}
     </FeedStyle>
   );
 };
+
+export const FeedVideoStyle = styled(Link)`
+text-decoration: none;
+color:black;
+`;
 
 export default Feed;

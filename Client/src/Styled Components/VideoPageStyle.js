@@ -15,47 +15,48 @@ export const MovieFrame = styled.div`
     & iframe {
         width:62vw;
         height:65vh;
+        margin-bottom:2vh;
     }
 
-    & h3 {
-        width:700px;   
+    & h4 {
+        text-align:right;
         padding: 0px;
         margin:0;
             
     }
-
-    padding: 0px;
-  }
-
-  & h4 {
-    padding: 0px;
-    margin: 0px;
-  }
 `;
 
 export const ContainerBtn = styled.div`
   display: flex;
   flex-direction: row;
-  margin-right: 30%;
-  padding: 0px;
+  justify-content:space-between;
+  align-items:center;
+  align-content:flex-start;
+  margin:2vh 0;
+  width:62vw;
+`;
+
+export const Views = styled.span`
+  margin:0;
+  padding:0;
+`;
+
+export const Block = styled.div`
+  width:39vw;
 `;
 
 export const LikesBtns = styled.button`
-  width: 80px;
-  height: 30px;
-  padding-top: 8px;
+  width: 90px;
+  height: 50px;
   display: flex;
   flex-direction: row;
   background-color: Transparent;
   border: none;
   cursor: pointer;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  font-weight: bold;
-  vertical-align: middle;
-  background-position: 50%, 50%;
   &:focus {
+    outline:none;
     color: rgb(6, 95, 212);
+    border-bottom:2px solid rgb(6, 95, 212);
   }
 `;
 

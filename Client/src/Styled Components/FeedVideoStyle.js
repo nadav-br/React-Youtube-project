@@ -1,26 +1,26 @@
 import styled from "styled-components";
 
-export const FeedVideoStyle = styled.ul`
-  width: 250px;
-  height: 250px;
+export const FeedVideoStyle = styled.div`
+  width: 20vw;
+  height: 50vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  padding-inline-start: 0px;
+  flex-wrap: wrap;
+  margin-bottom:1.5vh;
 
   & img {
-    width: 250px;
-    height: 150px;
+    width: 20vw;
+    margin-bottom:1.5vh;
   }
   & li {
     list-style: none;
-    margin-left: 5px;
+    margin:0;
     padding: 0;
     font-style: none;
+    margin-bottom:1.5vh;
   }
 `;
-
-export const LinkVideoStyle = {
-  margin: "2px 2px",
-  textDecoration: "none"
-};
+export const ViewsMoment = styled.div`
+  color: #606060;
+  font-size:14px;
+`;
