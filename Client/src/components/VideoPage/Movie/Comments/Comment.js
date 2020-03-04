@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import {CommentTag, Content, Title, Post} from "../../../../Styled Components/CommentStyle.js";
+import {CommentTag, Content, Title, Post} from "../../../../StyledComponents/CommentStyle.js";
 import {ReactComponent as Icon} from "../../../../assets/clerk.svg";
 
 function Comment(props) {

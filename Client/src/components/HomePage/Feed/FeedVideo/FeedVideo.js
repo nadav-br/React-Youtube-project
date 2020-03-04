@@ -1,6 +1,6 @@
 import React from "react";
 import Moment from "react-moment";
-import { FeedVideoStyle, ViewsMoment } from "../../../../Styled Components/FeedVideoStyle";
+import { FeedVideoStyle, ViewsMoment } from "../../../../StyledComponents/FeedVideoStyle";
 
 const FeedVideo = props => {
   return (

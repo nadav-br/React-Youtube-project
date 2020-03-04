@@ -1,7 +1,7 @@
 import React from "react";
 import Actions from "./Actions/Actions";
 import Comments from "../Movie/Comments/Comments";
-import {MovieFrame, CommentsCount} from "../../../Styled Components/VideoPageStyle";
+import {MovieFrame, CommentsCount} from "../../../StyledComponents/VideoPageStyle";
 
 function Movie(props) {
   console.log("movie", props.video);

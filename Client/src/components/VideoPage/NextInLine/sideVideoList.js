@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SideVideo from "./SideVideo";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { SideListStyle } from "../../../Styled Components/SideListStyle.js";
+import { SideListStyle } from "../../../StyledComponents/SideListStyle.js";
 const uuidv4 = require("uuid/v4");
 
 const SideVideoList = () => {

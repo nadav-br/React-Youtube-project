@@ -5,7 +5,7 @@ import {
   SideVideoImg,
   SideVideoviews,
   DescriptionBox
-} from "../../../Styled Components/SideVideoStyle.js";
+} from "../../../StyledComponents/SideVideoStyle.js";
 
 const SideVideo = props => {
   return (

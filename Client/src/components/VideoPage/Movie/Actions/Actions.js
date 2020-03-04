@@ -7,7 +7,7 @@ import {
   ContainerBtn,
   Views,
   Block
-} from "../../../../Styled Components/VideoPageStyle";
+} from "../../../../StyledComponents/VideoPageStyle";
 const Actions = (props) => {  
 
   const [likes, setLikes] = useState(props.likes)

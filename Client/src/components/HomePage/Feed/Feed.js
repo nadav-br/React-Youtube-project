@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FeedVideo from "./FeedVideo/FeedVideo";
 import { Link } from "react-router-dom";
-import { FeedStyle } from "../../../Styled Components/HomePageStyle";
+import { FeedStyle } from "../../../StyledComponents/HomePageStyle";
 import styled from "styled-components";
 const uuidv4 = require("uuid/v4");
 

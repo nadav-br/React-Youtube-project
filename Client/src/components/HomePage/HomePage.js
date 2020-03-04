@@ -1,6 +1,6 @@
 import React from "react";
 import Feed from "./Feed/Feed";
-import { HomeDiv } from "../../Styled Components/HomePageStyle";
+import { HomeDiv } from "../../StyledComponents/HomePageStyle";
 
 const HomePage = () => {
   return (

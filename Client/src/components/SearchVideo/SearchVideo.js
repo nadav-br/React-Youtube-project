@@ -6,7 +6,7 @@ import {
   SearchButton,
   Block,
   SearchForm,
-} from "../../Styled Components/SearchStyles";
+} from "../../StyledComponents/SearchStyles";
 import {ReactComponent as Youtube} from "../../../src/assets/YouTube_Logo.svg";
 import {ReactComponent as SearchIcon} from "../../../src/assets/search.svg";
 import {ReactComponent as User} from "../../../src/assets/clerk.svg";

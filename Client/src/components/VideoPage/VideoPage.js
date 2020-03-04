@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SideVideoList from "./NextInLine/sideVideoList";
 import Movie from "../VideoPage/Movie/Movie";
-import { MainContainer } from "../../Styled Components/VideoPageStyle";
-import { HomeDiv } from "../../Styled Components/HomePageStyle";
+import { MainContainer } from "../../StyledComponents/VideoPageStyle";
+import { HomeDiv } from "../../StyledComponents/HomePageStyle";
 const axios = require("axios");
 
 const VideoPage = props => {

@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import styled from "styled-components";
 import {ReactComponent as Icon} from "../../../../assets/clerk.svg"
-import {CommentInput, InputContainer} from "../../../../Styled Components/VideoPageStyle";
+import {CommentInput, InputContainer} from "../../../../StyledComponents/VideoPageStyle";
 
 
 function Input(props) {
