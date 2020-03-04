@@ -17,7 +17,7 @@ function SearchResults() {
     }
     
     useEffect(() => {
-        fetch(`/search?q=${id}`)
+        fetch(`/search/?q=${id}`)
         .then(res => res.json())
         .then(searchResults => {    
           setsearchResults(searchResults)        
