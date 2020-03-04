@@ -14,7 +14,7 @@ import styled from "styled-components";
 
 const SearchVideo = () => {
 
-  let history = useHistory();
+  const history = useHistory();
 
   const [input, setInput] = useState("");  
   

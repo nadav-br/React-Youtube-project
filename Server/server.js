@@ -57,7 +57,7 @@ app.get('/videos', async (req, res) => {
 } 
 
 app.get('/search', async (req, res) => {  
-    data = await searchVideos(req.query.q)
+    const data = await searchVideos(req.query.q);
             data.map(value => {
             value.statistics={
             viewCount:0,

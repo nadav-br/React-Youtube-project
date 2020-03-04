@@ -6,7 +6,6 @@ import './SearchResults.scss';
 const uuidv4 = require('uuid/v4');
 const axios = require('axios').default;
 
-
 function SearchResults() {
     const [searchResults, setsearchResults] = useState([]);
     const {id} = useParams();
@@ -29,7 +28,7 @@ function SearchResults() {
           {searchResults.map(video => {     
               return (   
                 <Link key={uuidv4()} onClick={() => putVidToDB(video)} to={`/video-page/${video.id}`}>                
-                <SearchResultVideo key={video.id} {...video} />
+                <SearchResultVideo {...video} />
                 </Link>
               )
           })}
