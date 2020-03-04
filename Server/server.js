@@ -18,7 +18,7 @@ app.use('/', express.static(path.join(__dirname, '../Client/build')));
 // 3. env vars: a> DB_URL , b> PORT
 
 app.get('/videos', async (req, res) => {   
-    try {
+    
         const data = await requestVideos();
             data.map(item => ({
             ...item,
@@ -26,12 +26,10 @@ app.get('/videos', async (req, res) => {
             }))       
                
             data.forEach(movie => {
-            const result = new MoviesModel(movie);
-            result.save();
+            const result = new MoviesModel(movie);            
+            result.save().catch(e => console.error(e)); 
             })
-    } catch(err) {        
-        throw new Error(err);
-    }                          
+                           
         // res.json(data)
         res.send(result);
 })
