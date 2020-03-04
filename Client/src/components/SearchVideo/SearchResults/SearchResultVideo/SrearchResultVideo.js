@@ -1,12 +1,13 @@
 import React from 'react'
+import { SearchResultVidDiv } from "../../../../StyledComponents/SearchResultStyle";
 
 function SearchResultVideo(props) {
     
     return (
-        <div className='searchResultVideo'>            
+        <SearchResultVidDiv>            
             <h5 className='title'>{props.snippet.title}</h5>
             <img src={props.snippet.thumbnails.medium.url} /> 
-        </div>
+        </SearchResultVidDiv>
     )
 }
 

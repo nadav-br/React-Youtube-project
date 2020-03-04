@@ -2,9 +2,11 @@ import React, {useEffect, useState } from 'react';
 import {useParams} from "react-router-dom";
 import SearchResultVideo from './SearchResultVideo/SrearchResultVideo'
 import { Link } from "react-router-dom";
-import './SearchResults.scss';
+import { SearchResultDiv } from "../../../StyledComponents/SearchResultStyle";
 const uuidv4 = require('uuid/v4');
 const axios = require('axios').default;
+
+
 
 function SearchResults() {
     const [searchResults, setsearchResults] = useState([]);
@@ -24,7 +26,7 @@ function SearchResults() {
     
     
     return (
-        <div className="searchResults">         
+        <SearchResultDiv>         
           {searchResults.map(video => {     
               return (   
                 <Link key={uuidv4()} onClick={() => putVidToDB(video)} to={`/video-page/${video.id}`}>                
@@ -32,7 +34,7 @@ function SearchResults() {
                 </Link>
               )
           })}
-        </div>
+        </SearchResultDiv>
     )
 }
 

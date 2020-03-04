@@ -1,4 +1,6 @@
-.searchResults{
+import styled from "styled-components";
+
+export const SearchResultDiv = styled.div`  
     width: 94%;
     display: flex;
     flex-direction: column;
@@ -7,23 +9,20 @@
     flex-wrap: wrap;    
     background: rgb(249, 249, 249);
     margin-top: 20px;
-    
-    
-}
-.searchResultVideo {
+`;
+
+export const SearchResultVidDiv = styled.div`  
     display: flex;    
     flex-direction: row;  
     margin-top: 17px;
     margin-right: 25px;
-    
-    .title {
-        padding-right: 15px;
 
+    & h5 {
+        padding-right: 15px;
     }
-    img {
+
+    & img {
         width: 246px;
         height: 138px;
     }
-
-}
-
+`;
