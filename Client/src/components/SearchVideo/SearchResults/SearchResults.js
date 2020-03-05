@@ -21,7 +21,8 @@ function SearchResults() {
         .then(res => res.json())
         .then(searchResults => {    
           console.log('searchResults', searchResults)
-          setsearchResults(searchResults)        
+          if(searchResults && searchResults.length)
+            setsearchResults(searchResults)        
         });
     },[id]);
     
