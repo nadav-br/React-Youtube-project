@@ -1,0 +1,2 @@
+::ffff:127.0.0.1 - - [Thu, 05 Mar 2020 08:56:15 GMT] "GET /search?q=kj HTTP/1.1" - - "http://localhost:3000/search-results/kj" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.116 Safari/537.36"
+::ffff:127.0.0.1 - - [Thu, 05 Mar 2020 08:56:16 GMT] "GET /search?q=kj HTTP/1.1" 200 17227 "http://localhost:3000/search-results/kj?" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.116 Safari/537.36"

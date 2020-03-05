@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import StoreProvider from "./components/Store/StoreProvider";
 import VideoPage from "./components/VideoPage/VideoPage";
 import HomePage from "./components/HomePage/HomePage";
 import SearchVideo from "./components/SearchVideo/SearchVideo";
@@ -14,7 +13,7 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/video-page/:id" exact component={VideoPage} />
-          <Route path="/search/:id" exact component={SearchResults} />
+          <Route path="/search-results/:id" exact component={SearchResults} />
         </Switch>
       </Router>
     </>

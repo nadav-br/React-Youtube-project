@@ -6,11 +6,18 @@ const KEY = "AIzaSyASy8NF_YlZSyqK5KP6oJ6UDSTdO3EkOYA"; //"AIzaSyCiWZ6dmHKrOEnTRV
 const {getDB} = require("./db");
 const moviesRoute = require("./movies");
 const path = require('path');
-const { MoviesModel } = require('./moviesModel')
+const { MoviesModel } = require('./moviesModel');
+const fs = require('fs');
+var logger = require('morgan');
+
 
 app.use(express.json())
 app.use('/movies', moviesRoute);
-getDB()
+
+getDB();
+
+var accessLogStream = fs.createWriteStream('./access.log', {flags: 'a'});
+app.use(logger({stream: accessLogStream}));
 
 // 1. express.static
 app.use('/', express.static(path.join(__dirname, '../Client/build')));

@@ -23,7 +23,7 @@ const SearchVideo = () => {
   };
 
   const clickSearch = () => {
-    history.push("/search/" + input);
+    history.push("/search-results/" + input);
   };
 
   return (
