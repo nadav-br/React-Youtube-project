@@ -11,7 +11,7 @@ const FeedVideo = props => {
           <li>{props.snippet.title}</li>          
           <ViewsMoment>
             {props.statistics.viewCount} views - 
-          <Moment fromNow>{props.snippet.publishedAt}</Moment>
+          <Moment fromNow>{props.date}</Moment>
           </ViewsMoment>
         </div>
       </FeedVideoStyle>

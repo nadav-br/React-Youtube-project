@@ -25,8 +25,8 @@ app.use('/', express.static(path.join(__dirname, '../Client/build')));
 // 3. env vars: a> DB_URL , b> PORT
 
 app.get('/videos', async (req, res) => {       
-        const data = await requestVideos().catch(e => console.error(e)); ;
-            data.map(item => ({
+        const data = await requestVideos().catch(e => console.error(e));
+        data.map(item => ({
             ...item,
             comments: [],
             }))       
