@@ -25,8 +25,7 @@ function SearchResults() {
             setsearchResults(searchResults)        
           }
         });
-    },[id]);
-    
+    },[]);    
     
     return (
         <SearchResultDiv>         
