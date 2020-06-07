@@ -29,11 +29,15 @@ const SearchVideo = () => {
   return (
     <SearchDiv>
       <Block><UserIcon /></Block>
-      <SearchForm onSubmit={() => clickSearch()}>
-          <SearchButton onClick={() => clickSearch()}><Icon/></SearchButton>
+      {/* search functionality is disabled for now due to youtube API problems. */}
+      <SearchForm onSubmit={(e) => e.preventDefault()}> 
+          <SearchButton>
+            <Icon/>
+          </SearchButton>
           <SearchInput
             type="text"
-            placeholder="חיפוש"
+            value="       "
+            // placeholder="חיפוש"
             onChange={e => handleInput(e)}
           ></SearchInput>
       </SearchForm>
