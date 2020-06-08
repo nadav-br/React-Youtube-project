@@ -9,27 +9,36 @@ let DateGenerator = require('random-date-generator');
 const Feed = () => {
   let [videoslist, setVideoList] = useState([]);
   let current = new Date();
+
+  const shuffleContenet = videos => {
+    videos.forEach(video => {
+      let startDate = new Date(2018, 5, 8);
+      let endDate = new Date();
+      let date = DateGenerator.getRandomDateInRange(startDate, endDate);
+      video.date = date;
+    });
+    videos.sort(() => 0.5 - Math.random());
+  }
+  
+  const getDuplicate = (data,key) => {
+    return [
+      ...new Map(
+        data.map(x => [key(x), x])
+      ).values()
+    ]
+  }
   
   useEffect(() => {
     fetch("/movies")
       .then(res => res.json())
       .then(videos => {
-        const shuffleContenet = videos => {
-          videos.forEach(video => {
-            let startDate = new Date(2018, 5, 8);
-            let endDate = new Date();
-            let date = DateGenerator.getRandomDateInRange(startDate, endDate);
-            video.date = date;
-          });
-          console.log('videos&date',videos)
-          videos.sort(() => 0.5 - Math.random());
-        }
+        
         shuffleContenet(videos);
-        setVideoList(videos);
+        let a = getDuplicate(videos, it => it.id);
+        setVideoList(a);
       }).catch(e => {throw new Error(e)})
   }, []);
 
-  console.log('videoslist',videoslist);
 
   return (
     <FeedStyle>
