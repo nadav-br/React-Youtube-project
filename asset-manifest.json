@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/nadav-br/React-Youtube-project/static/css/main.292cb616.chunk.css",
+    "main.js": "/nadav-br/React-Youtube-project/static/js/main.8a041cbe.chunk.js",
+    "main.js.map": "/nadav-br/React-Youtube-project/static/js/main.8a041cbe.chunk.js.map",
+    "runtime-main.js": "/nadav-br/React-Youtube-project/static/js/runtime-main.7ac305ff.js",
+    "runtime-main.js.map": "/nadav-br/React-Youtube-project/static/js/runtime-main.7ac305ff.js.map",
+    "static/js/2.c54414d6.chunk.js": "/nadav-br/React-Youtube-project/static/js/2.c54414d6.chunk.js",
+    "static/js/2.c54414d6.chunk.js.map": "/nadav-br/React-Youtube-project/static/js/2.c54414d6.chunk.js.map",
+    "index.html": "/nadav-br/React-Youtube-project/index.html",
+    "precache-manifest.ca6ac8295df03ad880e986b7f284f557.js": "/nadav-br/React-Youtube-project/precache-manifest.ca6ac8295df03ad880e986b7f284f557.js",
+    "service-worker.js": "/nadav-br/React-Youtube-project/service-worker.js",
+    "static/css/main.292cb616.chunk.css.map": "/nadav-br/React-Youtube-project/static/css/main.292cb616.chunk.css.map",
+    "static/js/2.c54414d6.chunk.js.LICENSE": "/nadav-br/React-Youtube-project/static/js/2.c54414d6.chunk.js.LICENSE",
+    "static/media/YouTube_Logo.dae7aab6.svg": "/nadav-br/React-Youtube-project/static/media/YouTube_Logo.dae7aab6.svg",
+    "static/media/clerk.547bb2fa.svg": "/nadav-br/React-Youtube-project/static/media/clerk.547bb2fa.svg",
+    "static/media/dislike.54e2abf9.svg": "/nadav-br/React-Youtube-project/static/media/dislike.54e2abf9.svg",
+    "static/media/like.80377f30.svg": "/nadav-br/React-Youtube-project/static/media/like.80377f30.svg",
+    "static/media/search.b0faa13c.svg": "/nadav-br/React-Youtube-project/static/media/search.b0faa13c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7ac305ff.js",
+    "static/js/2.c54414d6.chunk.js",
+    "static/css/main.292cb616.chunk.css",
+    "static/js/main.8a041cbe.chunk.js"
+  ]
+}
